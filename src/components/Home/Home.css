@@ -1,7 +1,6 @@
 .root {
     display: flex;
     flex-direction: column;
-    background-color: rgb(20, 66, 20)
 }
 
 .vertical-kanji {
@@ -21,27 +20,16 @@
     color: white;
 }
 
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
-
-.anime-title {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-    font-family: 'Anime', sans-serif;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.anime-subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    font-family: 'Anime', sans-serif;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-.app-main {
+.home {
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.small-cards {
+    display: flex;
+    gap: 2rem;
 }
 
 .section-title {
@@ -166,4 +154,11 @@
 
 .social-link:hover {
     text-decoration: underline;
+}
+
+.project-cards {
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }

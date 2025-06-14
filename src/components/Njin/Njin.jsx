@@ -1,5 +1,6 @@
 import React from 'react';
 import './Njin.css';
+import '../../global.module.css';
 
 export function Njin() {
     return (
