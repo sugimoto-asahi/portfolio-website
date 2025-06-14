@@ -1,6 +1,7 @@
 :root {
     --blackboard-color: rgb(20, 66, 20);
     --paper-color: rgb(232, 230, 226);
+    --dark-font-color: rgb(25, 28, 25);
 }
 
 body {

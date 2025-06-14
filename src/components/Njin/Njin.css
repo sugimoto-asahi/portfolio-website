@@ -1,6 +1,6 @@
 .njin-container {
     padding: 2rem;
-    background-color: var(--blackboard-color);
+    background-color: var(--paper-color);
     border-radius: 8px;
     margin: 2rem auto;
     max-width: 800px;
@@ -8,6 +8,6 @@
 }
 
 h1 {
-    /* Using the same text color as defined in global.module.css */
-    color: rgb(221, 253, 222);
+    color: var(--dark-font-color)
+
 }
