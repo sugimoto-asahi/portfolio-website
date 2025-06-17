@@ -1,0 +1,56 @@
+.p1, .p2, .p3, .p, .li {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: var(--font-color);
+}
+
+/* h1 */
+.p1 {
+    font-size: 4rem;
+}
+
+.p1Bold {
+    composes: p1;
+    font-weight: 600;
+}
+
+
+/* h2 */
+.p2 {
+    font-size: 2rem;
+}
+
+.p2Bold {
+    composes: p2;
+    font-weight: 600;
+}
+
+.p2Light {
+    composes: p2;
+    font-weight: 300;
+}
+
+/* h3 */
+.p3 {
+    font-size: 1.5rem;
+}
+
+.p3Bold {
+    composes: p3;
+    font-weight: 600;
+}
+
+.p3Light {
+    composes: p3;
+    font-weight: 300;
+}
+
+/* p */
+.p {
+    font-size: 1rem;
+}
+
+.pBold {
+    composes: p;
+    font-weight: 600;
+}

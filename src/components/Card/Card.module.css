@@ -1,32 +1,22 @@
 .card {
-    padding: 1rem;
-    flex: 1 1 0;
-    background-color: var(--paper-color);
-    box-shadow: 2px 4px 2px 4px rgba(0, 0, 0, 0.7);
-    border-radius: 2px;
-}
-
-.card__image {
-    max-width: 100%;
-    object-fit: contain;
-}
-
-.card__content {
     display: flex;
     flex-direction: column;
-    align-items: start;
-    padding: 1rem;
+    gap: 48px;
+    padding: 32px;
+    border: 1px solid black;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 8px solid black;
+    border-left: 2px solid black;
+    max-width: 40%;
 }
 
-.dark-text {
-    color: #191c19;
+.title {
+
 }
 
-
-.card__button-container {
+.content {
     display: flex;
-}
-
-.button {
-    align-self: end;
+    flex-direction: column;
+    gap: 48px;
 }

@@ -1,18 +1,15 @@
 import React from 'react';
 import Button from '../Button/Button.jsx';
 import styles from './Card.module.css';
-import '../../global.module.css'
+import text_styles from '@styles/text.module.css'
+import '@styles/global.module.css'
 
-export function Card({title, description, route, imageUrl}) {
+export function Card({title, children}) {
     return (
-        <div className={styles['card']}>
-            <div className={styles['card__content']}>
-                <img className={styles['card__image']} src={imageUrl}
-                     alt={title}/>
-                <h2 className={styles['dark-text']}>{title}</h2>
-                <p className={styles['dark-text']}>{description}</p>
-                <Button className={styles.button} route={route}/>
-            </div>
+        <div className={styles.card}>
+            <div className={text_styles.p1}>{title}</div>
+            <div
+                className={`${text_styles.p2} ${styles.content}`}>{children}</div>
         </div>
     );
 }
