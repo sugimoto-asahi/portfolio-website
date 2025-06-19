@@ -2,10 +2,11 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding: 96px 48px 96px 48px;
+    padding: 96px 192px 96px 192px;
 }
 
 .home {
+    width: 100%;
     display: flex;
     align-items: start;
     justify-content: space-between;

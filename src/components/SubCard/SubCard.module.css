@@ -1,0 +1,11 @@
+.subcard {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 16px;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 4px solid black;
+    border-left: 2px solid black;
+    max-width: 40%;
+}

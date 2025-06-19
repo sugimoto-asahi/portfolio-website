@@ -12,9 +12,9 @@ function Home() {
             <div className={styles.home}>
                 <Sidebar>
                     <Button route='/' linkText='Home'/>
-                    <Button route='about' linkText='About'/>
-                    <Button route='works' linkText='Works'/>
-                    <Button route='contact' linkText='Contact'/>
+                    <Button route='/about' linkText='About'/>
+                    <Button route='/works' linkText='Works'/>
+                    <Button route='/contact' linkText='Contact'/>
                 </Sidebar>
                 <Card title="Hi.">
                     <p className={text_styles.p2}>I'm Tan Juay Hee, an aspiring
