@@ -32,10 +32,16 @@ function About() {
                                 className={text_styles.p2Bold}>Computer Graphics and Games</span>
                             <span className={text_styles.p2}>.</span>
                         </p>
-                        <SubCard title="Unreal Engine">6-month team game
-                            project + 6 months personal experience</SubCard>
-                        <SubCard title="Unity">6-month team game
-                            project</SubCard>
+                        <div className={styles.subcardContainer}>
+                            <SubCard title="Unreal Engine">6-month team game
+                                project + 6 months personal experience</SubCard>
+                            <SubCard title="Placeholder 1">Description for
+                                placeholder skill 1</SubCard>
+                            <SubCard title="Unity">6-month team game
+                                project</SubCard>
+                            <SubCard title="Placeholder 2">Description for
+                                placeholder skill 2</SubCard>
+                        </div>
                     </Card>
                 </div>
                 <Button route='' linkText='JP'/>
