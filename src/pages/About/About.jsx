@@ -35,11 +35,11 @@ function About() {
                         <div className={styles.subcardContainer}>
                             <SubCard title="Unreal Engine">6-month team game
                                 project + 6 months personal experience</SubCard>
-                            <SubCard title="Placeholder 1">Description for
+                            <SubCard title="C++">Description for
                                 placeholder skill 1</SubCard>
                             <SubCard title="Unity">6-month team game
                                 project</SubCard>
-                            <SubCard title="Placeholder 2">Description for
+                            <SubCard title="C">Description for
                                 placeholder skill 2</SubCard>
                         </div>
                     </Card>
