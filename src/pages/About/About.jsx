@@ -32,15 +32,43 @@ function About() {
                                 className={text_styles.p2Bold}>Computer Graphics and Games</span>
                             <span className={text_styles.p2}>.</span>
                         </p>
+                    </Card>
+                    <Card title="Skills">
                         <div className={styles.subcardContainer}>
-                            <SubCard title="Unreal Engine">6-month team game
-                                project + 6 months personal experience</SubCard>
-                            <SubCard title="C++">Description for
-                                placeholder skill 1</SubCard>
-                            <SubCard title="Unity">6-month team game
-                                project</SubCard>
-                            <SubCard title="C">Description for
-                                placeholder skill 2</SubCard>
+                            <div className={styles.subcardRow}>
+                                <SubCard title="C++">4 years of modern C++(11
+                                    and
+                                    up)</SubCard>
+                                <SubCard title="Graphics">1 year of OpenGL + 1
+                                    year
+                                    of
+                                    Vulkan</SubCard>
+                            </div>
+                            <div className={styles.subcardRow}>
+                                <SubCard title="Web">Enough JS/HTML/CSS to make
+                                    this website</SubCard>
+                                <SubCard title="Scripting">Python, Lua,
+                                    bash</SubCard>
+                            </div>
+                        </div>
+                    </Card>
+
+                    <Card title="Tools">
+                        <div className={styles.subcardContainer}>
+                            <div className={styles.subcardRow}>
+                                <SubCard title="Unreal Engine">6-month team game
+                                    project + 6 months personal
+                                    experience</SubCard>
+                                <SubCard title="Unity">6-month team game
+                                    project</SubCard>
+                            </div>
+                            <div className={styles.subcardRow}>
+                                <SubCard title="Linux">4 years of working
+                                    with
+                                    the OS and GNU tools</SubCard>
+                                <SubCard title="C++ Toolchains">CMake,
+                                    vcpkg, both MSVC and gcc</SubCard>
+                            </div>
                         </div>
                     </Card>
                 </div>

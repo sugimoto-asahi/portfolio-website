@@ -17,12 +17,8 @@ function Works() {
                     <Button route='/contact' linkText='Contact'/>
                 </Sidebar>
                 <div className={styles.cards}>
-                    <Card title="Main Project">
+                    <Card title="njin">
                         <p className={text_styles.p2}>
-                            This is my main project showcase. It demonstrates my
-                            skills in web development
-                            and design. The project involved creating a
-                            responsive website with modern UI/UX principles.
                         </p>
                         <p className={text_styles.p2}>
                             Technologies used include <span
