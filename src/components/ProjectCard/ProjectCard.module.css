@@ -1,0 +1,55 @@
+.projectCard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding: 32px;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 8px solid black;
+    border-left: 2px solid black;
+}
+
+.headerContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.headerContainerTop {
+    display: flex;
+    gap: 24px;
+}
+
+.description {
+    text-align: left;
+    line-height: 1.6rem;
+}
+
+.titleContainer {
+
+}
+
+.arrowButton {
+    position: absolute;
+
+    /* midway down the project card */
+    left: calc(100% + 64px);
+    bottom: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow {
+    width: 64px;
+    height: 64px;
+    fill: black;
+    transition: fill 0.05s ease-out;
+}
+
+.arrow:hover {
+    fill: var(--style-color-red);
+    transition: fill 0.05s ease-out;
+    cursor: pointer;
+}

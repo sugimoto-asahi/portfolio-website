@@ -27,7 +27,7 @@ function About() {
                             <span className={text_styles.p2}>.</span>
                         </p>
                         <p>
-                            <span className={text_styles.p2}> My specialisation was in </span>
+                            <span className={text_styles.p2}> My specialisation is in </span>
                             <span
                                 className={text_styles.p2Bold}>Computer Graphics and Games</span>
                             <span className={text_styles.p2}>.</span>
