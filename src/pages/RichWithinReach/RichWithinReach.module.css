@@ -1,0 +1,18 @@
+.richWithinReach {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding: 6rem 12rem 6rem 12rem;
+}
+
+.arrowButton {
+    position: relative;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    width: 100%;
+    max-width: 45%;
+}

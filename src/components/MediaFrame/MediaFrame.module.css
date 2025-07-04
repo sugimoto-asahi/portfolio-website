@@ -1,0 +1,27 @@
+.mediaFrame {
+    align-self: center;
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+}
+
+.outerFrame {
+    display: flex;
+    flex-grow: 0;
+    justify-content: center;
+    padding: 1.5rem;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 6px solid black;
+    border-left: 2px solid black;
+}
+
+.innerFrame {
+    display: flex;
+    border-top: 4px solid black;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+}

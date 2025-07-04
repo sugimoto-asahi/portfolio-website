@@ -3,7 +3,7 @@ import {useState} from 'react';
 import styles from './ArrowButton.module.css';
 import {useNavigate} from 'react-router';
 
-function ArrowButton({className, route}) {
+function ArrowButton({className, direction, route}) {
     let navigate = useNavigate();
     const [isHovered, setIsHovered] = useState(false);
     const handleMouseEnter = () => setIsHovered(true);
@@ -50,6 +50,23 @@ function ArrowButton({className, route}) {
         }
     })();
 
+    let arrow;
+    if (direction === 'left') {
+        arrow =
+            <svg className={arrowClass}
+                 xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 -960 960 960">
+                <path
+                    d="m294.92-450 227.85 227.85L480-180 180-480l300-300 42.77 42.15L294.92-510H780v60H294.92Z"/>
+            </svg>;
+    } else {
+        arrow = <svg className={arrowClass} xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 -960 960 960">
+            <path
+                d="M684.16-454.87H180v-50.26h504.16L444.67-744.61 480-780l300 300-300 300-35.33-35.39 239.49-239.48Z"/>
+        </svg>;
+    }
+
 
     return (
         <div className={`${styles.arrowButtonContainer} ${className}`}>
@@ -60,13 +77,7 @@ function ArrowButton({className, route}) {
                  onMouseDown={handleMouseDown}
                  onMouseUp={handleMouseUp}
             />
-
-
-            <svg className={arrowClass} xmlns="http://www.w3.org/2000/svg"
-                 viewBox="0 -960 960 960">
-                <path
-                    d="M684.16-454.87H180v-50.26h504.16L444.67-744.61 480-780l300 300-300 300-35.33-35.39 239.49-239.48Z"/>
-            </svg>
+            {arrow}
         </div>
     );
 

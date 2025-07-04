@@ -17,8 +17,8 @@ function Works() {
                 <div className={styles.cards}>
                     <ProjectCard title='njin'
                                  description='is an ECS game engine built from scratch in C++.'
-                                 image=''
-                                 route='/about'
+                                 image='https://placehold.co/600x400'
+                                 route='/njin'
                                  className={styles.projectCard}>Built
                         completely
                         from scratch in C++, using a minimal amount of
@@ -34,21 +34,16 @@ function Works() {
 
                     <ProjectCard title='Rich Within Reach'
                                  description='is a scam education game, made in Unity'
+                                 route='/rich-within-reach'
                                  className={styles.projectCard}
-                    >You play as an entrepreneur, running your very own startup
-                        with dreams of making it big. Both business
-                        opportunities and scams
-                        present themselves via the phone, the daily newspaper,
-                        and emails.
-                        The player must navigate carefully, accepting business
-                        offers
-                        while avoiding scams. In the process, the game teaches
-                        the player to
-                        recognise the way scams show up in the real world.
+                                 image='public/assets/rich-within-reach.png'
+                    >
                     </ProjectCard>
                     <ProjectCard title='Ooga Booga'
                                  description='is an arena boss battle, made in Unreal Engine'
+                                 route='/ooga-booga'
                                  className={styles.projectCard}
+                                 image='https://placehold.co/600x400'
                     >
                         You are a caveman. Roam the arid lands, scavenging for
                         resources to craft weapons

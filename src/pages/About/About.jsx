@@ -17,7 +17,8 @@ function About() {
                     <Button route='/contact' linkText='Contact'/>
                 </Sidebar>
                 <div className={styles.cards}>
-                    <Card title="Education">
+                    <Card title='Education'
+                          type='title'>
                         <p>
                         <span className={text_styles.p2}>I graduated from the National
                         University
@@ -33,7 +34,7 @@ function About() {
                             <span className={text_styles.p2}>.</span>
                         </p>
                     </Card>
-                    <Card title="Skills">
+                    <Card title='Skills' type='title'>
                         <div className={styles.subcardContainer}>
                             <div className={styles.subcardRow}>
                                 <SubCard title="C++">4 years of modern C++(11
@@ -53,7 +54,7 @@ function About() {
                         </div>
                     </Card>
 
-                    <Card title="Tools">
+                    <Card title='Tools' type='title'>
                         <div className={styles.subcardContainer}>
                             <div className={styles.subcardRow}>
                                 <SubCard title="Unreal Engine">6-month team game

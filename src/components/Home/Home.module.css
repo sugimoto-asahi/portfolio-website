@@ -5,6 +5,10 @@
     padding: 96px 192px 96px 192px;
 }
 
+.card {
+    max-width: 45%;
+}
+
 .home {
     width: 100%;
     display: flex;
