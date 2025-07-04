@@ -4,15 +4,27 @@
     --style-font: 'Krub', sans-serif;
     --font: 'Inter', sans-serif;
     --style-color-red: #ff4e4e;
-    --style-color-dark-red: #572222
+    --style-color-dark-red: #572222;
+    --code-color-background: #f9f9f9;
+    --code-color-keyword: #a626a4;
+    --code-color-function: #4078f2;
+    --code-color-string: #50a14f;
+    --code-color-comment: #a0a1a7;
+    --code-color-name: #e45649;
+    --code-color-type: #2e9711
 }
 
 
 h1, h2, h3, p, li, ul, body {
     margin: 0;
     padding: 0;
-    font-family: var(--font);
+    font-family: var(--font), sans-serif;
     color: var(--font-color);
+}
+
+a {
+    all: unset;
+    text-decoration: none;
 }
 
 body {

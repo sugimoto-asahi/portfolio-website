@@ -13,8 +13,11 @@ export default defineConfig({
     },
     resolve: {
         alias: {
-            '@components': path.resolve(__dirname, 'src/components'),
-            '@styles': path.resolve(__dirname, 'src/styles')
+            '@components': path.resolve('src/components'),
+            '@styles': path.resolve('src/styles'),
+            '@util': path.resolve('src/util'),
+            '@svg': path.resolve('public/assets/svg'),
+            '@animations': path.resolve('public/assets/animations')
         }
     }
 });

@@ -1,0 +1,19 @@
+.textLink {
+    position: relative;
+    display: inline;
+}
+
+.linkDefault {
+    transition: border-bottom 0.05s ease-out, top 0.05s ease-out;
+    top: 0;
+    border-bottom: 1px solid var(--style-color-red);
+}
+
+.linkHovered {
+    position: relative;
+    top: -2px;
+    composes: linkDefault;
+    cursor: pointer;
+    border-bottom: 2px solid var(--style-color-red);
+    transition: border-bottom 0.05s ease-out, top 0.05s ease-out;
+}

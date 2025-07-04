@@ -1,3 +1,5 @@
+/* global font settings */
+
 .p1, .p2, .p3, .p, .li {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
@@ -15,6 +17,11 @@
     font-weight: 600;
 }
 
+.p1Italic {
+    composes: p1;
+    font-style: italic;
+}
+
 
 /* h2 */
 .p2 {
@@ -27,9 +34,15 @@
     font-weight: 600;
 }
 
+
 .p2Light {
     composes: p2;
     font-weight: 300;
+}
+
+.p2Italic {
+    composes: p2;
+    font-style: italic;
 }
 
 /* h3 */
@@ -47,6 +60,31 @@
     font-weight: 300;
 }
 
+.p3Italic {
+    composes: p3;
+    font-style: italic;
+}
+
+/* h4 */
+.p4 {
+    font-size: 1.25rem;
+}
+
+.p4Bold {
+    composes: p4;
+    font-weight: 600;
+}
+
+.p4Light {
+    composes: p4;
+    font-weight: 300;
+}
+
+.p4Italic {
+    composes: p4;
+    font-style: italic;
+}
+
 /* p */
 .p {
     font-size: 1rem;
@@ -55,4 +93,19 @@
 .pBold {
     composes: p;
     font-weight: 600;
+}
+
+.pItalic {
+    composes: p;
+    font-style: italic;
+}
+
+/*
+ code
+ */
+
+.pCode {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 400;
+
 }

@@ -1,9 +1,8 @@
-.projectCard {
+.linkCard {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: start;
-    gap: 1rem;
     padding: 32px;
     border-top: 2px solid black;
     border-right: 2px solid black;
@@ -11,15 +10,6 @@
     border-left: 2px solid black;
 }
 
-.headerContainer {
-    display: flex;
-    flex-direction: column;
-}
-
-.headerContainerTop {
-    display: flex;
-    gap: 24px;
-}
 
 .description {
     text-align: left;

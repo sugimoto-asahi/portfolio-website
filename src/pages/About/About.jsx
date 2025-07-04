@@ -5,6 +5,8 @@ import Button from "@components/Button/Button.jsx";
 import {Card} from "@components/Card/Card.jsx";
 import text_styles from "@styles/text.module.css";
 import SubCard from "@components/SubCard/SubCard.jsx";
+import Paragraph from "@components/Paragraph/Paragraph.jsx";
+import Spacer from "@components/Spacer/Spacer.jsx";
 
 function About() {
     return (
@@ -17,24 +19,27 @@ function About() {
                     <Button route='/contact' linkText='Contact'/>
                 </Sidebar>
                 <div className={styles.cards}>
-                    <Card title='Education'
-                          type='title'>
-                        <p>
-                        <span className={text_styles.p2}>I graduated from the National
-                        University
-                        of Singapore with a Bachelor's Degree </span>
-                            <span
-                                className={text_styles.p2Bold}>in Computer Science</span>
-                            <span className={text_styles.p2}>.</span>
-                        </p>
-                        <p>
-                            <span className={text_styles.p2}> My specialisation is in </span>
-                            <span
-                                className={text_styles.p2Bold}>Computer Graphics and Games</span>
-                            <span className={text_styles.p2}>.</span>
-                        </p>
+                    <Card>
+                        <Paragraph size={1}>Education</Paragraph>
+                        <Spacer size={1}/>
+                        <Paragraph size={2}>
+                            I graduated from the National University
+                            of Singapore with a Bachelor's Degree
+                            <span className={text_styles.p2Bold}>
+                                in Computer Science
+                            </span>.
+                        </Paragraph>
+                        <Spacer size={2}/>
+                        <Paragraph size={2}>
+                            My specialisation is in
+                            <span className={text_styles.p2Bold}>
+                                Computer Graphics and Games
+                            </span>.
+                        </Paragraph>
                     </Card>
-                    <Card title='Skills' type='title'>
+                    <Card>
+                        <Paragraph size={1}>Skills</Paragraph>
+                        <Spacer size={1}/>
                         <div className={styles.subcardContainer}>
                             <div className={styles.subcardRow}>
                                 <SubCard title="C++">4 years of modern C++(11
@@ -54,7 +59,9 @@ function About() {
                         </div>
                     </Card>
 
-                    <Card title='Tools' type='title'>
+                    <Card>
+                        <Paragraph size={1}>Tools</Paragraph>
+                        <Spacer size={1}/>
                         <div className={styles.subcardContainer}>
                             <div className={styles.subcardRow}>
                                 <SubCard title="Unreal Engine">6-month team game

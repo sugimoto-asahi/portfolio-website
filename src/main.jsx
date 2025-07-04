@@ -11,6 +11,9 @@ import Works from "./pages/Works/Works.jsx";
 import Njin from "./pages/Njin/Njin.jsx";
 import RichWithinReach from "./pages/RichWithinReach/RichWithinReach.jsx";
 import OogaBooga from "./pages/OogaBooga/OogaBooga.jsx";
+import Articles from "./pages/Articles/Articles.jsx";
+import SceneToScreen from "./articles/SceneToScreen/SceneToScreen.jsx";
+import TheVulkanModel from "./articles/TheVulkanModel/TheVulkanModel.jsx";
 
 const root = createRoot(document.getElementById('root'));
 
@@ -25,6 +28,11 @@ root.render(
                 <Route path='/njin' element={<Njin/>}/>
                 <Route path='/ooga-booga' element={<OogaBooga/>}/>
                 <Route path='/rich-within-reach' element={<RichWithinReach/>}/>
+                <Route path='/articles' element={<Articles/>}/>
+                <Route path='/articles/scene-to-screen'
+                       element={<SceneToScreen/>}/>
+                <Route path='/articles/the-vulkan-model'
+                       element={<TheVulkanModel/>}/>
             </Routes>
         </BrowserRouter>
     </React.StrictMode>

@@ -1,4 +1,4 @@
-.richWithinReach {
+.articles {
     display: flex;
     justify-content: space-between;
     align-items: start;
@@ -9,10 +9,11 @@
     position: relative;
 }
 
+
 .content {
     display: flex;
-    flex-direction: column;
     gap: 4rem;
+    flex-direction: column;
     width: 100%;
     max-width: 45%;
 }

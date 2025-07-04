@@ -8,5 +8,5 @@
     border-bottom: 4px solid black;
     border-left: 2px solid black;
     width: 100%;
-    max-width: 40%
+    align-self: center;
 }

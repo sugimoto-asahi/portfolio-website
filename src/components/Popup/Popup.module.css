@@ -1,0 +1,15 @@
+.popup {
+}
+
+.popupContainer {
+    position: fixed;
+    width: 20rem;
+    display: flex;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    gap: 1rem;
+    border-top: 2px solid var(--style-color-red);
+    border-right: 2px solid var(--style-color-red);
+    border-left: 2px solid var(--style-color-red);
+    border-bottom: 4px solid var(--style-color-red);
+
+}

@@ -1,0 +1,39 @@
+.sceneToScreen {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding: 6rem 12rem 6rem 12rem;
+}
+
+.textCards {
+    position: relative;
+    right: calc(50% + 2rem);
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.arrowButton {
+    position: relative;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    max-width: 40%;
+    width: 100%;
+    gap: 3rem;
+}
+
+.tellerDebug {
+    position: fixed;
+    top: 50vh;
+    left: 0;
+    width: 100vw;
+    border: 1px solid red;
+}
+
+.title {
+    line-height: 4rem;
+}
+

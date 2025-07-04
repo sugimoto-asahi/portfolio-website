@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import styles from './Contact.module.css';
 import Sidebar from "@components/Sidebar/Sidebar.jsx";
 import Button from "@components/Button/Button.jsx";
 import {Card} from "@components/Card/Card.jsx";
 import text_styles from "@styles/text.module.css";
 import '@styles/global.module.css';
+import Paragraph from "@components/Paragraph/Paragraph.jsx";
 
 function Contact() {
     const [message, setMessage] = useState('');
@@ -29,23 +30,25 @@ function Contact() {
                     <Button route='/contact' linkText='Contact'/>
                 </Sidebar>
                 <div className={styles.cards}>
-                    <Card title="Get in Touch">
-                        <p className={text_styles.p2}>
-                            Feel free to send me a message and I'll get back to you as soon as possible.
-                        </p>
+                    <Card>
+                        <Paragraph size={1}>Get in Touch</Paragraph>
+                        <Paragraph size={2}>
+                            Feel free to send me a message and I'll get back to
+                            you as soon as possible.
+                        </Paragraph>
                         <div className={styles.messageContainer}>
                             <div className={styles.messageInputContainer}>
-                                <textarea 
-                                    className={styles.messageInput} 
+                                <textarea
+                                    className={styles.messageInput}
                                     placeholder="Type your message here..."
                                     value={message}
                                     onChange={handleMessageChange}
                                 />
                             </div>
                             <div className={styles.buttonWrapper}>
-                                <Button 
+                                <Button
                                     className={styles.sendButtonContainer}
-                                    linkText="Send" 
+                                    linkText="Send"
                                     onClick={handleSend}
                                 />
                             </div>

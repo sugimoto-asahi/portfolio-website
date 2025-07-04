@@ -2,6 +2,22 @@
     align-self: center;
 }
 
+.stretch {
+    width: 100%;
+}
+
+.videoContainer {
+    width: 100%;
+    padding-top: 56.25%;
+    position: relative;
+}
+
+.reactPlayer {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 .image {
     max-width: 100%;
     height: auto;
@@ -9,8 +25,7 @@
 
 .outerFrame {
     display: flex;
-    flex-grow: 0;
-    justify-content: center;
+    flex-direction: column;
     padding: 1.5rem;
     border-top: 2px solid black;
     border-right: 2px solid black;
