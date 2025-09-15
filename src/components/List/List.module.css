@@ -1,0 +1,28 @@
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.listItem {
+    display: flex;
+    align-items: center;
+}
+
+.bulletContainer {
+    display: flex;
+    align-items: start;
+
+    /* fill vertical width of list item so that the bullet can be positioned within */
+    align-self: stretch;
+}
+
+
+.listItem:last-child {
+    margin-bottom: 0;
+}
+
+.content {
+    margin-left: 1rem;
+    flex: 1;
+}
