@@ -44,7 +44,7 @@ function Works() {
                             Unity</Paragraph>
                         <Spacer size={1}/>
                         <MediaFrame
-                            media={'public/assets/rich-within-reach.png'}/>
+                            media={'src/assets/rich-within-reach.png'}/>
                     </LinkCard>
                     <LinkCard title='Ooga Booga'
                               description='is an arena boss battle, made in Unreal Engine'

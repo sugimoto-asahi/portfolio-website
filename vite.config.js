@@ -16,8 +16,8 @@ export default defineConfig({
             '@components': path.resolve('src/components'),
             '@styles': path.resolve('src/styles'),
             '@util': path.resolve('src/util'),
-            '@svg': path.resolve('public/assets/svg'),
-            '@animations': path.resolve('public/assets/animations')
+            '@svg': path.resolve('src/assets/svg'),
+            '@animations': path.resolve('src/assets/animations')
         }
     }
 });
