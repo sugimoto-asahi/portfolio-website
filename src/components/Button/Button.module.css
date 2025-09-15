@@ -27,6 +27,7 @@
     composes: link;
     top: -4px;
     transition: top 0.05s ease-in;
+    cursor: pointer;
 }
 
 .linkInactive {
