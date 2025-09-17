@@ -26,6 +26,7 @@
 .outerFrame {
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding: 1.5rem;
     border-top: 2px solid black;
     border-right: 2px solid black;
@@ -35,8 +36,19 @@
 
 .innerFrame {
     display: flex;
+
+    /* stretch to fill the width of the outer frame, so .videoContainer will
+     * inherit the correct width */
+    align-self: stretch;
     border-top: 4px solid black;
     border-right: 2px solid black;
     border-bottom: 2px solid black;
     border-left: 2px solid black;
+}
+
+.captionContainer {
+    display: flex;
+
+    /* separate itself from the bottom edge of the media */
+    padding-top: 1rem;
 }

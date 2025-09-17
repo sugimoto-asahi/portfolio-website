@@ -5,10 +5,11 @@ import ReactPlayer from 'react-player';
 /**
  *
  * @param media Either an image or embedded video
+ * @param caption Optional caption for the media
  * @returns {JSX.Element}
  * @constructor
  */
-function MediaFrame({media}) {
+function MediaFrame({media, caption}) {
     const videoRegex = /.*youtube.*/i
     const imageRegex = /.*\.(jpg|png|jpeg)$/i
 
@@ -45,6 +46,8 @@ function MediaFrame({media}) {
                 <div className={styles.innerFrame}>
                     {mediaContent}
                 </div>
+                {caption &&
+                    <div className={styles.captionContainer}>{caption}</div>}
             </div>
         </div>
     );

@@ -27,7 +27,8 @@ function RichWithinReach() {
                     <Paragraph size={2}>You are an entrepreneur.</Paragraph>
                     <Spacer size={1}/>
                     <MediaFrame
-                        media='https://www.youtube.com/watch?v=fu57lGoPLKQ'/>
+                        media='https://www.youtube.com/watch?v=fu57lGoPLKQ'
+                    />
                     <Spacer size={1}/>
                     <Paragraph>
                         Rich Within Reach is a <span
