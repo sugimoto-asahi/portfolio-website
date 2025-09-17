@@ -12,10 +12,10 @@ function Works() {
         <div className={styles.root}>
             <div className={styles.works}>
                 <Sidebar>
-                    <Button route='/' linkText='Home'/>
-                    <Button route='/about' linkText='About'/>
-                    <Button route='/works' linkText='Works'/>
-                    <Button route='/contact' linkText='Contact'/>
+                    <Button route='/' linkText='Home' color='red'/>
+                    <Button route='/about' linkText='About' color='red'/>
+                    <Button route='/works' linkText='Works' color='red'/>
+                    <Button route='/contact' linkText='Contact' color='red'/>
                 </Sidebar>
                 <div className={styles.cards}>
                     <LinkCard
@@ -61,7 +61,7 @@ function Works() {
                         {/*village.*/}
                     </LinkCard>
                 </div>
-                <Button route='' linkText='JP'/>
+                <Button route='' linkText='JP' color='red'/>
             </div>
         </div>
     );

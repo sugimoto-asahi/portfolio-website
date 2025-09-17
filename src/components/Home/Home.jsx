@@ -13,11 +13,11 @@ function Home() {
         <div className={styles.root}>
             <div className={styles.home}>
                 <Sidebar>
-                    <Button route='/' linkText='Home'/>
-                    <Button route='/about' linkText='About'/>
-                    <Button route='/works' linkText='Works'/>
-                    <Button route='/articles' linkText='Articles'/>
-                    <Button route='/contact' linkText='Contact'/>
+                    <Button route='/' linkText='Home' color='red'/>
+                    <Button route='/about' linkText='About' color='red'/>
+                    <Button route='/works' linkText='Works' color='red'/>
+                    <Button route='/articles' linkText='Articles' color='red'/>
+                    <Button route='/contact' linkText='Contact' color='red'/>
                 </Sidebar>
                 <Card className={styles.card}>
                     <Paragraph size={1}>Hi.</Paragraph>
@@ -32,7 +32,7 @@ function Home() {
                     <Paragraph size={2}> Use the navigation panel on
                         the left to explore.</Paragraph>
                 </Card>
-                <Button route='' linkText='JP'/>
+                <Button route='' linkText='JP' color='red'/>
             </div>
         </div>
     )

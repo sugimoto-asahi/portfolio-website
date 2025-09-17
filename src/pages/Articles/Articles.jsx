@@ -38,7 +38,7 @@ function Articles() {
                     </Paragraph>
                 </LinkCard>
             </div>
-            <Button route='' linkText='JP'/>
+            <Button route='' linkText='JP' color='red'/>
         </div>
     );
 
