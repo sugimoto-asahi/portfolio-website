@@ -9,6 +9,12 @@
     position: relative;
 }
 
+.downloadsContainer {
+    display: flex;
+    align-self: stretch;
+    justify-content: space-evenly;
+}
+
 .content {
     display: flex;
     flex-direction: column;
