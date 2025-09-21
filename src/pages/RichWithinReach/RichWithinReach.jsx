@@ -20,9 +20,9 @@ function RichWithinReach() {
             <div className={styles.content}>
                 <Card>
                     <Paragraph size={1}>Rich Within Reach</Paragraph>
-                    <Paragraph size={2}>is a 6-month game
+                    <Paragraph size={2}>is a 4-month game
                         project
-                        built in Unity in a team of 4.</Paragraph>
+                        built in Unity in a team of 5.</Paragraph>
                 </Card>
 
 
@@ -118,12 +118,13 @@ function RichWithinReach() {
                 <Card>
                     <Paragraph size={2}>Summary of game</Paragraph>
                     <Spacer size={2}/>
-                    <Paragraph>The following is summary of all the primary parts
+                    <Paragraph>The following is summary of all the primary
+                        components
                         of the game. A list of my contributions is provided,
                         along with
-                        examples of where they appear in game. Technical
-                        discussion
-                        regarding the things I learned about graphics and assets
+                        indications of where they appear in game. Technical
+                        discussion regarding the things I learned about graphics
+                        and assets
                         in game development
                         are in the subsequent sections.
                     </Paragraph>
