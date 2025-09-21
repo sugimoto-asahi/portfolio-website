@@ -11,7 +11,7 @@ import textStyles from '@styles/text.module.css';
  * @returns {JSX.Element} - Rendered list
  */
 function List({children, bulletIcon, className}) {
-    // Default bullet icon (simple circle)
+    // Default bullet icon (double arrow)
     const bullet = (
         <svg xmlns="http://www.w3.org/2000/svg" height="24px"
              viewBox="0 -960 960 960" width="24px" fill="#1f1f1f">

@@ -3,7 +3,6 @@ import styles from './MediaFrame.module.css'
 import ReactPlayer from 'react-player';
 
 /**
- *
  * @param media Either an image or embedded video
  * @param caption Optional caption for the media
  * @returns {JSX.Element}
