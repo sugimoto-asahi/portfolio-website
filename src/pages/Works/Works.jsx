@@ -55,10 +55,9 @@ function Works() {
                         <Paragraph size={1}>Ooga Booga</Paragraph>
                         <Paragraph size={2}>is an arena boss battle, made in
                             Unreal Engine</Paragraph>
-                        {/*You are a caveman. Roam the arid lands, scavenging for*/}
-                        {/*resources to craft weapons*/}
-                        {/*to take down the woolly mammoth threatening your*/}
-                        {/*village.*/}
+                        <Spacer size={1}/>
+                        <MediaFrame
+                            media={'/images/ooga-booga/ooga-booga-poster.jpeg'}/>
                     </LinkCard>
                 </div>
                 <Button route='' linkText='JP' color='red'/>
