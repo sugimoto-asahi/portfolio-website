@@ -1,0 +1,18 @@
+.arrowButton {
+    position: relative;
+}
+
+.njin {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding: 6rem 12rem 6rem 12rem;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    width: 100%;
+    max-width: 45%;
+}
