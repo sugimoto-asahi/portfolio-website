@@ -104,11 +104,11 @@ function RichWithinReach() {
                     <Spacer size={2}/>
                     <div className={styles.downloadsContainer}>
                         <Button
-                            route='src/assets/downloads/Rich-Within-Reach-Windows.zip'
+                            route='/downloads/Rich-Within-Reach-Windows.zip'
                             type='download'
                             linkText='Windows'/>
                         <Button
-                            route='src/assets/downloads/Rich-Within-Reach-Mac.zip'
+                            route='/downloads/Rich-Within-Reach-Mac.zip'
                             type='download'
                             linkText='Mac'/>
                     </div>

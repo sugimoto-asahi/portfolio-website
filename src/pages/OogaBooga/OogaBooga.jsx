@@ -83,7 +83,7 @@ function OogaBooga() {
                     <Spacer size={2}/>
                     <div className={styles.downloadsContainer}>
                         <Button
-                            route='src/assets/downloads/Ooga-Booga-Windows.zip'
+                            route='/downloads/Ooga-Booga-Windows.zip'
                             type='download'
                             linkText='Windows'/>
                     </div>
