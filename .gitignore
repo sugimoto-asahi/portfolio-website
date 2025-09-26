@@ -1,6 +1,7 @@
 .idea/
 .vite/
 node_modules/
+dist/
 
 *.aep
 *.ai
