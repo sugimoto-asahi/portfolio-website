@@ -22,37 +22,37 @@ export function I({children}) {
 // function
 export function CF({children}) {
     return (<span className={textStyles.pCode}
-                  style={{color: "var(--code-color-function"}}>{children}</span>);
+                  style={{color: "var(--code-color-function)"}}>{children}</span>);
 }
 
 // keyword
 export function CK({children}) {
     return (<span className={textStyles.pCode}
-                  style={{color: "var(--code-color-keyword"}}>{children}</span>);
+                  style={{color: "var(--code-color-keyword)"}}>{children}</span>);
 }
 
 // string
 export function CS({children}) {
     return (<span className={textStyles.pCode}
-                  style={{color: "var(--code-color-string"}}>{children}</span>);
+                  style={{color: "var(--code-color-string)"}}>{children}</span>);
 }
 
 // comment
 export function CC({children}) {
     return (<span className={textStyles.pCode}
-                  style={{color: "var(--code-color-comment"}}>{children}</span>);
+                  style={{color: "var(--code-color-comment)"}}>{children}</span>);
 }
 
 // name
 export function CN({children}) {
     return (<span className={textStyles.pCode}
-                  style={{color: "var(--code-color-name"}}>{children}</span>);
+                  style={{color: "var(--code-color-name)"}}>{children}</span>);
 }
 
 // type
 export function CT({children}) {
     return (<span className={textStyles.pCode}
-                  style={{color: "var(--code-color-type"}}>{children}</span>);
+                  style={{color: "var(--code-color-type)"}}>{children}</span>);
 }
 
 // default (black)

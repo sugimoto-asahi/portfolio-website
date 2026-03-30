@@ -8,14 +8,13 @@ import styles from './Button.module.css';
  * External: Link to a different domain
  * Internal: Link to a different page
  * Download: Link to a file download
+ * Action: Calls a provided callback instead of navigating
  * @param route Route to navigate to
- * @param type Route type ('external', 'internal', 'download')
- * External: Link to a different domain
- * Internal: Link to a different page
- * Download: Link to a file download
+ * @param type Route type ('external', 'internal', 'download', 'action')
  * @param navigator React Router navigate function to use for client-side routing
+ * @param onClick Callback invoked when type is 'action'
  */
-function visit(route, type, navigator) {
+function visit(route, type, navigator, onClick) {
     if (type === 'external') {
         window.open(route);
     } else if (type === 'internal') {
@@ -30,6 +29,8 @@ function visit(route, type, navigator) {
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
+    } else if (type === 'action') {
+        onClick?.();
     } else {
         console.error('Invalid route type:', type);
     }
@@ -39,13 +40,13 @@ function visit(route, type, navigator) {
 /**
  * Button component with customizable route
  * @param {string} linkText The text displayed within the button.
- * @param {string} route Target route
+ * @param {string} route Target route (not required when type='action')
  * @param {string} color Color theme of the button - either red or black
- * @param {string} type Type of route
- * External, internal or download
+ * @param {string} type Type of route - 'internal', 'external', 'download', or 'action'
+ * @param {function} onClick Callback invoked when type='action'
  * @return {JSX.Element} The rendered Button component.
  */
-function Button({className, linkText, route, color, type = 'internal'}) {
+function Button({className, linkText, route, color, type = 'internal', onClick}) {
     const navigator = useNavigate();
 
     const [isHovered, setIsHovered] = useState(false);
@@ -60,7 +61,7 @@ function Button({className, linkText, route, color, type = 'internal'}) {
     };
     const handleMouseUp = () => {
         // allow animation to complete
-        setTimeout(() => visit(route, type, navigator), 10);
+        setTimeout(() => visit(route, type, navigator, onClick), 10);
         setIsClicked(false)
     };
 

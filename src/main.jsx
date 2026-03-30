@@ -2,6 +2,7 @@
 import React from 'react';
 import {createRoot} from 'react-dom/client';
 import {BrowserRouter, Route, Routes} from "react-router";
+import {LanguageProvider} from './i18n/LanguageContext.jsx';
 import Home from './components/Home/Home.jsx';
 import '@styles/global.module.css'
 import '@styles/index.css'
@@ -19,6 +20,7 @@ const root = createRoot(document.getElementById('root'));
 
 root.render(
     <React.StrictMode>
+        <LanguageProvider>
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home/>}/>
@@ -35,5 +37,6 @@ root.render(
                        element={<TheVulkanModel/>}/>
             </Routes>
         </BrowserRouter>
+        </LanguageProvider>
     </React.StrictMode>
 );

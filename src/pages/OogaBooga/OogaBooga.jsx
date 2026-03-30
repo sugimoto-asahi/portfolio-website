@@ -9,8 +9,10 @@ import MediaFrame from "@components/MediaFrame/MediaFrame.jsx";
 import {B} from "@util/typography.jsx";
 import TextLink from "@components/TextLink/TextLink.jsx";
 import List from "@components/List/List.jsx";
+import {useLanguage} from "@i18n/LanguageContext.jsx";
 
 function OogaBooga() {
+    const {lang, toggleLang, t} = useLanguage();
     return (
         <div className={styles.oogaBooga}>
             <ArrowButton route='/' direction='left'
@@ -18,68 +20,49 @@ function OogaBooga() {
 
             <div className={styles.content}>
                 <Card>
-                    <Paragraph size={1}>Ooga Booga</Paragraph>
-                    <Paragraph size={2}>is a 4-month game
-                        project built in Unreal Engine in a team of
-                        4.</Paragraph>
+                    <Paragraph size={1}>{t('ooga.page.title')}</Paragraph>
+                    <Paragraph size={2}>{t('ooga.page.subtitle')}</Paragraph>
                 </Card>
 
                 <Card>
-                    <Paragraph size={2}>You are a caveman.</Paragraph>
+                    <Paragraph size={2}>{t('ooga.page.tagline')}</Paragraph>
                     <Spacer size={1}/>
                     <MediaFrame
                         media='https://www.youtube.com/watch?v=h8c9ZlKnNGM'/>
                     <Spacer size={1}/>
                     <Paragraph>
-                        Rich Within Reach is an <B>arena boss battle</B>.
+                        <B>{t('ooga.page.genre')}</B>
                     </Paragraph>
                     <Spacer/>
-                    <Paragraph>
-                        You are Krag. Roam the arid lands, scavenging for
-                        resources to craft weapons to take down the woolly
-                        mammoth
-                        threatening your village.
-                    </Paragraph>
+                    <Paragraph>{t('ooga.page.plot')}</Paragraph>
                 </Card>
 
                 <Card>
-                    <Paragraph size={2}>Credits</Paragraph>
+                    <Paragraph size={2}>{t('ooga.page.credits.title')}</Paragraph>
                     <Spacer size={2}/>
-                    <Paragraph size={3}>Team Members</Paragraph>
-                    <Paragraph>This project would not have been possible without
-                        the hard work of my teammates.</Paragraph>
+                    <Paragraph size={3}>{t('ooga.page.credits.members')}</Paragraph>
+                    <Paragraph>{t('ooga.page.credits.thanks')}</Paragraph>
                     <Spacer size={3}/>
                     <Paragraph>
-                        <B>Team Lead, 3D Artist</B> {' '}
-                        <TextLink link={'https://github.com/nobodyishappy'}>Tang
-                            Hao
-                            Liang
-                        </TextLink>
+                        <B>{t('ooga.page.credits.role.lead_artist')}</B> {' '}
+                        <TextLink link={'https://github.com/nobodyishappy'}>Tang Hao Liang</TextLink>
                     </Paragraph>
                     <Paragraph>
-                        <B>Gameplay Programmer</B> {' '}
-                        <TextLink
-                            link={'https://sg.linkedin.com/in/quek-sze-long'}>Qwek
-                            Sze Long
-                        </TextLink>
+                        <B>{t('ooga.page.credits.role.gameplay')}</B> {' '}
+                        <TextLink link={'https://sg.linkedin.com/in/quek-sze-long'}>Qwek Sze Long</TextLink>
                     </Paragraph>
-
                     <Paragraph>
-                        <B>Gameplay Programmer, Project Manager</B> {' '}
-                        <TextLink link={'https://github.com/zekone'}>Ho Khee Wei
-                        </TextLink>
+                        <B>{t('ooga.page.credits.role.gameplay_pm')}</B> {' '}
+                        <TextLink link={'https://github.com/zekone'}>Ho Khee Wei</TextLink>
                     </Paragraph>
-
-
                     <Paragraph>
-                        <B>UI Programmer, 2D & VFX Artist</B>{' '}
+                        <B>{t('ooga.page.credits.role.ui_vfx')}</B>{' '}
                         Tan Juay Hee
                     </Paragraph>
-
                 </Card>
 
                 <Card>
-                    <Paragraph size={2}>Downloads</Paragraph>
+                    <Paragraph size={2}>{t('ooga.page.downloads.title')}</Paragraph>
                     <Spacer size={2}/>
                     <div className={styles.downloadsContainer}>
                         <Button
@@ -90,93 +73,60 @@ function OogaBooga() {
                 </Card>
 
                 <Card>
-                    <Paragraph size={2}>Summary of game</Paragraph>
+                    <Paragraph size={2}>{t('ooga.page.summary.title')}</Paragraph>
                     <Spacer size={2}/>
-                    <Paragraph>The following is a summary of the all the primary
-                        components of the game. A list of my contributions is
-                        provided, along with
-                        indications of where they appear in game.</Paragraph>
+                    <Paragraph>{t('ooga.page.summary.intro')}</Paragraph>
                     <Spacer/>
 
-                    <Paragraph size={3}>List of my contributions:</Paragraph>
+                    <Paragraph size={3}>{t('ooga.page.summary.contributions')}</Paragraph>
                     <List>
-                        <span>Designed most UI elements and icons</span>
-                        <span>Used UMG to create the UI</span>
-                        <span>Exposed UI events for gameplay programmers to
-                        call to update UI</span>
-                        <span>Create Niagara effects for Mammoth attacks and set up the
-                        corresponding sockets and animation timing to match gameplay</span>
-                        <span>Created a simple poster for the game</span>
-                        <span>Composed simple background music for the game</span>
+                        <span>{t('ooga.page.contrib.1')}</span>
+                        <span>{t('ooga.page.contrib.2')}</span>
+                        <span>{t('ooga.page.contrib.3')}</span>
+                        <span>{t('ooga.page.contrib.4')}</span>
+                        <span>{t('ooga.page.contrib.5')}</span>
+                        <span>{t('ooga.page.contrib.6')}</span>
                     </List>
                     <Spacer/>
 
-                    <Paragraph>The first screen the player sees upon launching
-                        the executable
-                        is the main menu.</Paragraph>
+                    <Paragraph>{t('ooga.page.main_menu')}</Paragraph>
                     <Spacer/>
                     <MediaFrame media='/images/ooga-booga/main-menu.png'
                                 caption='main menu'/>
                     <Spacer/>
 
-                    <Paragraph>On clicking the "Start" button, the player is
-                        brought into the game.
-                        They begin in a safe zone that leads to the main arena,
-                        where they can
-                        familiarise themselves with the controls.</Paragraph>
+                    <Paragraph>{t('ooga.page.start_area')}</Paragraph>
                     <Spacer/>
                     <MediaFrame media='/images/ooga-booga/start-area.png'
                                 caption='start area'/>
                     <Spacer/>
 
-                    <Paragraph>Once the player is ready to begin play, they may
-                        move
-                        up the screen into the main arena.</Paragraph>
+                    <Paragraph>{t('ooga.page.arena_entrance')}</Paragraph>
                     <Spacer/>
                     <MediaFrame media='/images/ooga-booga/arena-entrance.png'
                                 caption='entering the arena'/>
                     <Spacer/>
-                    <Paragraph>
-                        The player must avoid the mammoth chasing them,
-                        while scavenging for materials in different locations
-                        on the map.
-                    </Paragraph>
+                    <Paragraph>{t('ooga.page.scavenging')}</Paragraph>
                     <Spacer/>
                     <MediaFrame media='/images/ooga-booga/scavenging.png'
                                 caption='scavenging for three materials to make a weapon'/>
                     <Spacer/>
 
-                    <Paragraph>The hotbar and material icons were designed by me
-                        and implemented
-                        with UMG. I also exposed an API to the gameplay
-                        programmers such that
-                        when the player picks up an item it will reflect
-                        correctly in the hotbar. Other
-                        APIs I exposed include changing the health bar according
-                        to the caveman's current health. This allowed
-                        programmers to update
-                        the visual indication of the player's health when they
-                        were damaged by a mammoth attack.</Paragraph>
-                    <Paragraph>Once enough materials are collected, the player
-                        can
-                        craft a weapon and attempt to beat the mammoth. There
-                        are many different
-                        weapons to be discovered.</Paragraph>
+                    <Paragraph>{t('ooga.page.hotbar')}</Paragraph>
+                    <Paragraph>{t('ooga.page.crafting')}</Paragraph>
                     <Spacer/>
 
                     <MediaFrame media='/images/ooga-booga/fighting.png'
                                 caption='fighting the mammoth with the newly crafted weapon'/>
                     <Spacer/>
-                    <Paragraph>I used Niagara effects for the mammoth's attacks,
-                        timing it to its attack animations and making sure the
-                        size of the effects match
-                        the actual hitboxes of the attacks.</Paragraph>
+                    <Paragraph>{t('ooga.page.niagara')}</Paragraph>
                     <Spacer/>
                     <MediaFrame media='/images/ooga-booga/attacked.png'
                                 caption='the mammoth swinging its trunk at the caveman'/>
                 </Card>
             </div>
-            <Button route='' linkText='JP'/>
+            <Button onClick={toggleLang} type='action' linkText={lang === 'en' ? 'JP' : 'EN'}/>
+
         </div>
 
     );
