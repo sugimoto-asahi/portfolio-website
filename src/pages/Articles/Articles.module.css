@@ -1,19 +1,14 @@
 .articles {
     display: flex;
-    justify-content: space-between;
-    align-items: start;
-    padding: 6rem 12rem 6rem 12rem;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 6rem 12rem;
 }
-
-.arrowButton {
-    position: relative;
-}
-
 
 .content {
     display: flex;
     gap: 4rem;
     flex-direction: column;
     width: 100%;
-    max-width: 45%;
+    max-width: 560px;
 }

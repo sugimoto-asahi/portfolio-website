@@ -1,22 +1,4 @@
-.root {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 96px 192px 96px 192px;
-}
-
+/* Home-specific: constrains the card width in the MainLayout content column */
 .card {
     max-width: 45%;
 }
-
-.home {
-    width: 100%;
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
-}
-
-.spacer {
-    min-width: 100px;
-}
-

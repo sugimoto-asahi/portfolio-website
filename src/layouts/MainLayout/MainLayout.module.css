@@ -1,0 +1,15 @@
+/* Outer centering column (matches the former .root pattern shared by all top-level pages) */
+.layoutRoot {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 6rem 12rem;
+}
+
+/* Three-column flex row: NavSidebar | page content | LangButton */
+.shell {
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}

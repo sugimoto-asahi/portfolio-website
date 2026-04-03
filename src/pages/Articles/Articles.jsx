@@ -1,18 +1,14 @@
 import React from 'react'
 import styles from './Articles.module.css'
-import Button from "@components/Button/Button.jsx";
-import ArrowButton from "@components/ArrowButton/ArrowButton.jsx";
 import {LinkCard} from "@components/ProjectCard/LinkCard.jsx";
 import Spacer from "@components/Spacer/Spacer.jsx";
 import Paragraph from "@components/Paragraph/Paragraph.jsx";
 import {useLanguage} from "@i18n/LanguageContext.jsx";
 
 function Articles() {
-    const {lang, toggleLang, t} = useLanguage();
+    const {t} = useLanguage();
     return (
         <div className={styles.articles}>
-            <ArrowButton route='/' direction='left'
-                         className={styles.arrowButton}/>
             <div className={styles.content}>
                 <LinkCard route='/articles/scene-to-screen'>
                     <Paragraph size={2}>{t('articles.scene.title')}</Paragraph>
@@ -25,7 +21,6 @@ function Articles() {
                     <Paragraph>{t('articles.vulkan.body')}</Paragraph>
                 </LinkCard>
             </div>
-            <Button onClick={toggleLang} type='action' linkText={lang === 'en' ? 'JP' : 'EN'} color='red'/>
         </div>
     );
 

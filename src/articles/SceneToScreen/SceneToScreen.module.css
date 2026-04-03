@@ -1,26 +1,21 @@
 .sceneToScreen {
     display: flex;
-    justify-content: space-between;
-    align-items: start;
-    padding: 6rem 12rem 6rem 12rem;
+    flex-direction: column;
+    width: 100%;
+    padding: 6rem 0;
 }
 
 .textCards {
     position: relative;
-    right: calc(50% + 2rem);
+    width: calc(50% - 3rem);
     display: flex;
     flex-direction: column;
     gap: 4rem;
 }
 
-.arrowButton {
-    position: relative;
-}
-
 .content {
     display: flex;
     flex-direction: column;
-    max-width: 40%;
     width: 100%;
     gap: 3rem;
 }

@@ -1,7 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react'
 import styles from './SceneToScreen.module.css'
-import Button from "@components/Button/Button.jsx";
-import ArrowButton from "@components/ArrowButton/ArrowButton.jsx";
 import {Card} from "@components/Card/Card.jsx";
 import Spacer from "@components/Spacer/Spacer.jsx";
 import Paragraph from "@components/Paragraph/Paragraph.jsx";
@@ -13,8 +11,10 @@ import List from "@components/List/List.jsx";
 import TextLink from "@components/TextLink/TextLink.jsx";
 import Code from "@components/Code/Code.jsx";
 import SubCard from "@components/SubCard/SubCard.jsx";
+import {useLanguage} from "@i18n/LanguageContext.jsx";
 
 function SceneToScreen() {
+    const {t} = useLanguage();
     let firstTextCardRef = useRef(null);
 
     /* we want the scrollyteller to be the same width as the
@@ -66,14 +66,12 @@ function SceneToScreen() {
         const callback = (entries, observer) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    // console.log(`incoming intersection: ${entry.target.id}`);
                     if (!markerStack.current.includes(entry.target.id)) {
                         markerStack.current.push(entry.target.id);
                     }
                 }
 
                 if (!entry.isIntersecting) {
-                    // console.log(`outgoing intersection: ${entry.target.id}`);
                     if (entry.target.id === markerStack.current[markerStack.current.length - 1]) {
                         markerStack.current.pop();
                     }
@@ -82,8 +80,7 @@ function SceneToScreen() {
                 setCurrentMarker(markerStack.current[markerStack.current.length - 1]);
             });
         };
-        const observer = new IntersectionObserver(callback
-            , options);
+        const observer = new IntersectionObserver(callback, options);
         observer.observe(m0Ref.current);
         observer.observe(m1Ref.current);
         observer.observe(m2Ref.current);
@@ -98,538 +95,214 @@ function SceneToScreen() {
 
     return (
         <div className={styles.sceneToScreen}>
-            {/*<div className={styles.tellerDebug}/>*/}
-            <ArrowButton route='/articles' direction='left'
-                         className={styles.arrowButton}/>
             <div className={styles.content}>
                 <Card>
-                    <Paragraph size={1} className={styles.title}>From Scene
-                        to
-                        Screen in Vulkan</Paragraph>
+                    <Paragraph size={1} className={styles.title}>{t('articles.scene.title')}</Paragraph>
                 </Card>
                 <div className={styles.textCards} ref={firstTextCardRef}>
                     <Card>
-                        <Paragraph size={2}>How do humans see?</Paragraph>
+                        <Paragraph size={2}>{t('sts.s1.title')}</Paragraph>
                         <div ref={m0Ref} id='m0'/>
                         <Spacer size={2}/>
-                        <Paragraph>Humans see because they have
-                            eyes.</Paragraph>
+                        <Paragraph>{t('sts.s1.p1')}</Paragraph>
                         <Spacer/>
-                        <Paragraph>Light rays reflect off objects
-                            in the surroundings in random directions.
-                            A small portion of the reflected rays happen to
-                            coincide with the cornea in such a way that they
-                            are able to enter the eye and strike the
-                            retina.</Paragraph>
+                        <Paragraph>{t('sts.s1.p2')}</Paragraph>
                         <Spacer/>
-                        <Paragraph>The light ray enters the
-                            cornea, traveling in a straight line until
-                            it strikes the light sensitive retina. Receptor
-                            cells
-                            capture the signal at the struck location, before
-                            sending the information to the brain.
-                            The brain interprets this signal as color, or as
-                            in the illustration on the right, red.
-                        </Paragraph>
+                        <Paragraph>{t('sts.s1.p3')}</Paragraph>
                         <div ref={m1Ref} id='m1'/>
                     </Card>
                     <Card>
-                        <Paragraph size={2}>The screen abstraction</Paragraph>
+                        <Paragraph size={2}>{t('sts.s2.title')}</Paragraph>
                         <Spacer size={2}/>
-                        <Paragraph>The image formed on the retina is the
-                            image seen in the mind. </Paragraph>
+                        <Paragraph>{t('sts.s2.p1')}</Paragraph>
                         <Spacer/>
-                        <Paragraph>Theoretically,
-                            if one were able to trigger precisely
-                            the same receptors, at the same locations,
-                            with the same wavelengths and intensities
-                            of light, the human experiencing the image would not
-                            know the difference.
-                        </Paragraph>
+                        <Paragraph>{t('sts.s2.p2')}</Paragraph>
                         <Spacer/>
-
-                        <Paragraph>
-                            This is the fundamental goal of computer graphics.
-                            The strength of computer graphics is in its
-                            capability of reproducing visual experiences
-                            of a physical world without the need for
-                            real, physical objects.
-                        </Paragraph>
+                        <Paragraph>{t('sts.s2.p3')}</Paragraph>
                         <Spacer/>
-
-                        <Paragraph>
-                            The core question is this: where, and how,
-                            should a screen filled with lights be
-                            placed in front of an eye, to produce an illusion
-                            of a world?
-                        </Paragraph>
+                        <Paragraph>{t('sts.s2.p4')}</Paragraph>
                         <Spacer/>
-
-                        <Paragraph>
-                            To begin tackling this problem, two major
-                            abstractions are first made to the model of the eye.
-                        </Paragraph>
+                        <Paragraph>{t('sts.s2.p5')}</Paragraph>
                         <Spacer size={3}/>
 
-                        <Paragraph size={3}>1. The retina</Paragraph>
+                        <Paragraph size={3}>{t('sts.s2.sub1.title')}</Paragraph>
                         <div ref={m2Ref} id='m2'/>
                         <Spacer/>
-                        <Paragraph>Anything captured on the retina is part of
-                            the final
-                            image experienced. Ideally, the screen should be
-                            able to target all parts of the retina, so the first
-                            intuition is to have a similarly curved screen.
-                        </Paragraph>
-
+                        <Paragraph>{t('sts.s2.sub1.p1')}</Paragraph>
                         <Spacer/>
-                        <Paragraph>
-                            In practical situations, though, humans only
-                            care about a much smaller cone of light entering
-                            through the iris. After all, people don't
-                            particularly pay attention to their peripheral
-                            vision constantly.
-                        </Paragraph>
+                        <Paragraph>{t('sts.s2.sub1.p2')}</Paragraph>
                         <div ref={m3Ref} id='m3'/>
-
                         <Spacer/>
-                        <Paragraph>Since the total change in curvature
-                            across this smaller section of the eye is smaller,
-                            considering it a completely flat surface is
-                            feasible. This allows the screen
-                            to be flat as well, giving rise to the design of
-                            standard modern monitors.</Paragraph>
+                        <Paragraph>{t('sts.s2.sub1.p3')}</Paragraph>
 
                         <Spacer size={3}/>
-                        <Paragraph size={3}>2. The screen</Paragraph>
+                        <Paragraph size={3}>{t('sts.s2.sub2.title')}</Paragraph>
                         <Spacer/>
-                        <Paragraph>For various historical and technical reasons,
-                            screens are rectangular. This has major implications
-                            for the way computer graphics is conducted, because
-                            it implies that any mathematics that happens behind
-                            the
-                            scenes is always chosen with the end goal in mind: a
-                            fixed, <I>x</I> by <I>y</I> array.
+                        <Paragraph>
+                            {t('sts.s2.sub2.p1.before')}<I>x</I> by <I>y</I>{t('sts.s2.sub2.p1.after')}
                         </Paragraph>
                     </Card>
 
                     <Card>
-                        <Paragraph size={2}>Eye space
-                        </Paragraph>
+                        <Paragraph size={2}>{t('sts.s3.title')}</Paragraph>
                         <Spacer size={2}/>
 
-                        <Paragraph size={3}>Concept</Paragraph>
+                        <Paragraph size={3}>{t('sts.s3.concept.title')}</Paragraph>
                         <Spacer/>
 
                         <div ref={m4Ref} id='m4'/>
-                        <Paragraph>Consider the diagram shown on the
-                            right, which represents a side-on view
-                            of the scene described in earlier sections.
-                            The x-axis points out of the screen.
-                        </Paragraph>
+                        <Paragraph>{t('sts.s3.p1')}</Paragraph>
                         <Spacer/>
 
-                        <Paragraph>
-                            The idea is to use a flat screen of pixels to
-                            trigger visual receptors in such a way that a scene
-                            with
-                            depth is (reasonably) accurately perceived. To
-                            achieve this,
-                            a few simple assumptions are made.
-                        </Paragraph>
+                        <Paragraph>{t('sts.s3.p2')}</Paragraph>
                         <Spacer/>
 
                         <List>
-                            <span>The coordinate system is such that the viewer's
-                            eye is at <Math tex={'(0, 0)'}/></span>
-                            <span>It is not known precisely how far the the viewer sits
-                            from their monitor, so an arbitrary and easily adjustable
-                            variable <Math tex={'n'}/> represents this distance.</span>
-                            <span>The coordinate system is right-handed. The X, Y, and Z axes
-                                are right, up and forward, respectively.</span>
+                            <span>{t('sts.s3.list.1.before')}<Math tex={'(0, 0)'}/></span>
+                            <span>{t('sts.s3.list.2.before')}<Math tex={'n'}/>{t('sts.s3.list.2.after')}</span>
+                            <span>{t('sts.s3.list.3')}</span>
                         </List>
                         <Spacer/>
 
-                        <Paragraph>Let the <I>camera</I> be an object with
-                            the exactly same functionality as the iris,
-                            with a location exactly matching that of the
-                            iris, at <Math tex={'(0, 0)'}/>.
+                        <Paragraph>
+                            {t('sts.s3.p3.before')}<I>{t('sts.s3.p3.italic')}</I>{t('sts.s3.p3.after.before')}<Math tex={'(0, 0)'}/>{t('sts.s3.p3.after.after')}
                         </Paragraph>
                         <Spacer/>
-                        <Paragraph>Let the <I>near
-                            plane</I> be a plane of the exact same dimensions as
-                            the monitor.
-                            That is, if the user's monitor is 1920
-                            pixels in width and 1080 pixels in height, then the
-                            hypothetical screen is 1920 units in width and 1080
-                            units in height.
+                        <Paragraph>
+                            {t('sts.s3.p4.before')}<I>{t('sts.s3.p4.italic1')}</I>{t('sts.s3.p4.after')}
                         </Paragraph>
                         <Spacer/>
 
                         <Paragraph>
-                            The plane is located at <Math tex={'(0, n)'}/>, the
-                            same distance from the viewer as the monitor.
+                            {t('sts.s3.p5.before')}<Math tex={'(0, n)'}/>{t('sts.s3.p5.after')}
+                        </Paragraph>
+                        <Spacer/>
+
+                        <Paragraph>{t('sts.s3.p6')}</Paragraph>
+                        <Spacer/>
+
+                        <Paragraph>
+                            {t('sts.s3.p7.before')}<I>{t('sts.s3.p7.italic')}</I>{t('sts.s3.p7.after.before')}<Math tex={'a \\geq y \\geq -a'}/>{t('sts.s3.p7.after.after')}
                         </Paragraph>
                         <Spacer/>
 
                         <Paragraph>
-                            While constructing this system seems redundant, it
-                            is relevant later.
-                        </Paragraph>
-                        <Spacer/>
-
-                        <Paragraph>Pretend that there is actually an object
-                            at the desired location behind the screen, then
-                            project rays from the object directly to the camera.
-                            Note down that the rays intersect, or
-                            are <I>projected</I> onto the
-                            near plane in the range <Math
-                                tex={'a \\geq y \\geq -a'}/>.
+                            {t('sts.s3.p8.before')}{' '}<Math tex={'(n, 0)'}/>{' '}{t('sts.s3.p8.mid1')}<Math tex={'(n, a)'}/>{t('sts.s3.p8.mid2')}<Math tex={'(n, 0)'}/>{t('sts.s3.p8.mid3')}<Math tex={'(n, -a)'}/>{t('sts.s3.p8.after')}
                         </Paragraph>
                         <Spacer/>
 
                         <Paragraph>
-                            For all corresponding pixels from {' '}
-                            <Math tex={'(n, 0)'}/> {' '} to <Math
-                            tex={'(n, a)'}/> on the monitor, display the color
-                            green.
-                            Similarly, for all pixels from <Math
-                            tex={'(n, 0)'}/> to <Math
-                            tex={'(n, -a)'}/>, display the color red.
+                            {t('sts.s3.p9.before')}<Math tex={'o'}/>{t('sts.s3.p9.mid')}{' '}<Math tex={'n'}/>{t('sts.s3.p9.mid2')}
                         </Paragraph>
                         <Spacer/>
 
-                        <Paragraph>In theory, the image displayed on the
-                            monitor should be a perfect representation that
-                            causes the viewer to perceive the object at a
-                            distance <Math tex={'o'}/>,
-                            directly in front of themselves. In practice,
-                            small deviations (such as the fact that the assumed
-                            distance {' '}
-                            <Math tex={'n'}/> from the monitor is not precisely
-                            accurate)
-                            break the illusion, but this is not of any concern.
-                            After all, there is no expectation for images
-                            displayed
-                            on monitors to be absolutely indistinguishable from
-                            reality.
+                        <Paragraph>{t('sts.s3.p10')}</Paragraph>
+                        <Spacer/>
+
+                        <Paragraph>
+                            {t('sts.s3.p11.before')}<Math tex={'(n, 10)'}/>{t('sts.s3.p11.mid')}<Math tex={'(o, 0)'}/>{t('sts.s3.p11.after')}
                         </Paragraph>
                         <Spacer/>
 
                         <Paragraph>
-                            This is the core idea behind displaying
-                            3-dimensional scenes.
-                        </Paragraph>
-                        <Spacer/>
-
-                        <Paragraph>
-                            Suppose the user wants to view the
-                            object from somewhere above, for example, from <Math
-                            tex={'(n, 10)'}/>, and looking down at <Math
-                            tex={'(o, 0)'}/>.
-                        </Paragraph>
-                        <Spacer/>
-
-                        <Paragraph>
-                            By moving the camera and the near plane in tandem
-                            such that the camera sits at <Math
-                            tex={'(n, 10)'}/>, and rotating the system
-                            to look down at <Math tex={'(o, 0)'}/>, the
-                            programmer can capture an image as seen from above
-                            on the near
-                            plane. Since the near plane maps directly onto the
-                            screen, there is no issue when displaying the
-                            captured image on the monitor either.
+                            {t('sts.s3.p12.before')}<Math tex={'(n, 10)'}/>{t('sts.s3.p12.mid')}<Math tex={'(o, 0)'}/>{t('sts.s3.p12.after')}
                         </Paragraph>
                         <Spacer size={3}/>
 
-                        <Paragraph size={3}>
-                            View matrix
-                        </Paragraph>
+                        <Paragraph size={3}>{t('sts.s3.view.title')}</Paragraph>
                         <Spacer/>
 
-                        <Paragraph>There is a crucial issue to consider.
-                            When the camera is at <Math
-                                tex={'(n, 10)'}/> and looking down at the
-                            object,
-                            the near plane is also slanted.
-
+                        <Paragraph>
+                            {t('sts.s3.view.p1.before')}<Math tex={'(n, 10)'}/>{t('sts.s3.view.p1.after')}
                         </Paragraph>
                         <Spacer/>
 
                         <Paragraph>
-                            Recall that all the items being discussed are
-                            3-dimensional.
-
-                            The coordinates captured on the near plane aren't
-                            conducive for
-                            mapping onto the screen. Ideally, captured
-                            coordinates on the near plane
-                            should look like <Math tex={'(500, 1000, z)'}/>,
-                            where <Math tex={'z = n'}/> and is constant.
-
-                            This is desirable because it is both
-                            understandable and easy to program for: illuminate
-                            the
-                            pixel at <Math
-                            tex={'(500, 1000)'}/> on the monitor.
+                            {t('sts.s3.view.p2.before')}<Math tex={'(500, 1000, z)'}/>{t('sts.s3.view.p2.mid')}<Math tex={'z = n'}/>{t('sts.s3.view.p2.mid2')}<Math tex={'(500, 1000)'}/>{t('sts.s3.view.p2.after')}
                         </Paragraph>
                         <Spacer/>
 
                         <Paragraph>
-                            However, since the near plane is at an
-                            angle, captured coordinates look more like <Math
-                            tex={'(273.54, 1728.23, 3.73)'}/>; what's worse
-                            is that
-                            the z-coordinate varies across the capturing
-                            surface.
-
-                        </Paragraph>
-                        <Spacer/>
-                        <Paragraph>
-                            The solution is to, regardless of the position
-                            of the camera when capturing a scene, convert the
-                            entire
-                            coordinate system of the scene
-                            to become relative to the camera.
-                            The result of this change is that the ideal
-                            situation is forcibly recreated:
-                            the camera will be at <Math tex={'(0, 0)'}/> by
-                            virtue of the way the transformation is calculated.
-                            This is discussed later.
-                            As a side note, the near plane will also end up back
-                            at <Math tex={'z = n'}/>. This is because the
-                            system
-                            was originally constructed such that the near plane
-                            is precisely <Math tex={'n'}/> units away from the
-                            camera;
-                            the coordinate transformation is constructed to
-                            "reset"
-                            the system back into the ideal position, essentially
-                            undoing all the
-                            changes made by the programmer when positioning the
-                            camera.
-
-                        </Paragraph>
-                        <Spacer/>
-                        <Paragraph>Of course, a coordinate frame
-                            change does
-                            not affect the
-                            relative position of any objects in the scene,
-                            therefore the
-                            visual composition of the scene remains unaffected.
-                            With this technique, regardless of the camera's
-                            position
-                            in the scene, the captured coordinates on the near
-                            plane
-                            can always be displayed in a friendly manner (i.e.,
-                            constant z).
-                        </Paragraph>
-                        <Spacer/>
-
-                        <Paragraph>The coordinate transform is represented with
-                            a single matrix, called the <I>view matrix</I>.
-                            Objects placed freely in the
-                            world have their own coordinates, and the
-                            coordinates are
-                            interpreted as belonging in <I>world space</I>. This
-                            includes the camera,
-                            which is also positioned in world coordinates.
-
-                            The desired outcome is for the camera to be
-                            positioned at <Math tex={'(0, 0)'}/>,
-                            while keeping the relative position of all other
-                            objects to the camera unchanged.
-                            This final coordinate system is called <I>eye
-                                space</I>, as the camera
-                            acts as a sort of virtual "eye" in the scene, and
-                            the final setup is
-                            such that everything is relative to this "eye" at
-                            the origin.
-
+                            {t('sts.s3.view.p3.before')}<Math tex={'(273.54, 1728.23, 3.73)'}/>{t('sts.s3.view.p3.after')}
                         </Paragraph>
                         <Spacer/>
 
                         <Paragraph>
-                            It is important to remember that coordinate system
-                            changes don't involve the movement of any objects in
-                            the
-                            scene, including the camera.
-                            Rather, the only thing that changes is the
-                            coordinate representation of each object.
-                            The origin of the world is moving.
-                        </Paragraph>
-                        <Spacer/>
-                        <Paragraph>
-                            Let the view matrix be <Math tex={'V'}/>.
+                            {t('sts.s3.view.p4.before')}<Math tex={'(0, 0)'}/>{t('sts.s3.view.p4.mid')}<Math tex={'z = n'}/>{t('sts.s3.view.p4.mid2')}<Math tex={'n'}/>{t('sts.s3.view.p4.after')}
                         </Paragraph>
                         <Spacer/>
 
-                        <Paragraph>
-                            The positioned camera has a location and a rotation.
-                            Therefore, <Math tex={'V'}/> is derived from two
-                            matrix components:
-                            one to correct the location of the camera <Math
-                            tex={'V_l'}/>, and one to
-                            correct the rotation <Math tex={'V_r'}/>.
+                        <Paragraph>{t('sts.s3.view.p5')}</Paragraph>
+                        <Spacer/>
 
+                        <Paragraph>{t('sts.s3.view.p6.before')}</Paragraph>
+                        <Spacer/>
+
+                        <Paragraph>
+                            {t('sts.s3.view.p7.before')}<Math tex={'V'}/>{t('sts.s3.view.p7.after')}
                         </Paragraph>
                         <Spacer/>
 
                         <Paragraph>
-                            First, the location is considered. The camera needs
-                            to be at <Math tex={'(0, 0)'}/>.
+                            {t('sts.s3.view.p8.before')}<Math tex={'V'}/>{t('sts.s3.view.p8.mid')}<Math tex={'V_l'}/>{t('sts.s3.view.p8.mid2')}<Math tex={'V_r'}/>{t('sts.s3.view.p8.after')}
+                        </Paragraph>
+                        <Spacer/>
 
-                            Let the world coordinates of the camera be <Math
-                            tex={'w'}/> and
-                            the eye coordinates of the camera be <Math
-                            tex={'e  = (0, 0, 0, 1)'}/>.
-
+                        <Paragraph>
+                            {t('sts.s3.view.p9.before')}<Math tex={'(0, 0)'}/>{t('sts.s3.view.p9.mid')}<Math tex={'w'}/>{t('sts.s3.view.p9.mid2')}<Math tex={'e  = (0, 0, 0, 1)'}/>{t('sts.s3.view.p9.after')}
                             <Math displayMode={true}
                                   tex={'\\begin{bmatrix} 0 \\\\ 0 \\\\ 0 \\\\ 1 \\end{bmatrix} = V_l' +
                                       '\\begin{bmatrix} w_x \\\\ w_y \\\\ w_z \\\\ 1 \\end{bmatrix}'}/>
-
-                            By observation,
                             <Math displayMode={true}
                                   tex={'V_l = \\begin{bmatrix}' +
                                       '1 & 0 & 0 & -w_x \\\\' +
                                       '0 & 1 & 0 & -w_y \\\\' +
                                       '0 & 0 & 1 & -w_z \\\\' +
                                       '0 & 0 & 0 & 1 \\end{bmatrix}'}/>
-
-                            This is commonly interpreted as a translation
-                            by {' '}
-                            <Math tex={'(-w_x, -w_y, -w_z)'}/>, but it must once
-                            again be stressed that not only is the camera
-                            "moving" by this
-                            amount, so is every other point in the space.
-                        </Paragraph>
-                        <Spacer/>
-                        <Paragraph>
-                            Next, the rotation is considered. While the camera
-                            is now
-                            situated at the origin, it is still pointing in
-                            whichever direction
-                            it was pointing at before the translation.
-
+                            {t('sts.s3.view.p9.end.before')}{' '}
+                            <Math tex={'(-w_x, -w_y, -w_z)'}/>{t('sts.s3.view.p9.end.after')}
                         </Paragraph>
                         <Spacer/>
 
+                        <Paragraph>{t('sts.s3.view.p10.before')}</Paragraph>
+                        <Spacer/>
+
                         <Paragraph>
-                            By convention, eye space is such that the camera's
-                            "forward" vector <Math tex={'f'}/>
-                            points in the direction of the negative z-axis. The
-                            "up" vector <Math tex={'u'}/> of the camera will
-                            point in the
-                            direction
-                            of the y-axis, and the "right" vector <Math
-                            tex={'r'}/> (relative
-                            to the camera's
-                            "forward" and "up") will point in the direction of
-                            the x-axis.
+                            {t('sts.s3.view.p11.before')}<Math tex={'f'}/>{t('sts.s3.view.p11.mid')}<Math tex={'u'}/>{t('sts.s3.view.p11.mid2')}<Math tex={'r'}/>{t('sts.s3.view.p11.after')}
+                        </Paragraph>
+                        <Spacer/>
+
+                        <Paragraph>{t('sts.s3.view.p12.before')}</Paragraph>
+                        <Spacer/>
+
+                        <Paragraph>
+                            {t('sts.s3.view.p13.before')}<Math tex={'p'}/>{t('sts.s3.view.p13.mid')}<Math tex={'\\frac{p - c}{\\left|p-c\\right|}'}/>{t('sts.s3.view.p13.mid2')}
                         </Paragraph>
                         <Spacer/>
 
                         <Paragraph>
-                            This is also a simple change of basis
-                            transformation;
-                            to derive this component of the view matrix, each of
-                            the
-                            3 basis vectors as described above need to be found
-                            for the camera (in world coordinates).
-
+                            {t('sts.s3.view.p14.before')}<Math tex={'f'}/>{t('sts.s3.view.p14.mid')}<Math tex={'f'}/>{t('sts.s3.view.p14.after')}
                         </Paragraph>
                         <Spacer/>
 
                         <Paragraph>
-                            The basis vector for the z-axis is tackled first.
-                            Let the world coordinates of the point the camera is
-                            looking at
-                            be <Math tex={'p'}/>; then the forward vector of the
-                            camera is <Math
-                            tex={'\\frac{p - c}{\\left|p-c\\right|}'}/>,
-                            that is, the vector from the camera to the point.
-                            However, recall that the goal is to have the camera
-                            point down the negative z-axis. This implies that
-                            points in front of the camera in world space should
-                            end up being expressed with a negative z-coordinate
-                            in eye space.
-
-                        </Paragraph>
-                        <Spacer/>
-                        <Paragraph>
-                            If <Math tex={'f'}/> is used as the z-axis basis
-                            vector
-                            as is, points in front of the camera in world space
-                            will end up with positive z-coordinates instead.
-
-                            This is because points in front of the camera
-                            in world space have a z-coordinate
-                            that is a positive scalar multiple of <Math
-                            tex={'f'}/>.
-                            To remedy this issue, the forward vector will be
-                            negated when
-                            used as the basis vector.
-
-                        </Paragraph>
-                        <Spacer/>
-                        <Paragraph>
-                            The basis vector for the x-axis is calculated next.
-                            A provisional up vector <Math tex={'u\''}/> is used
-                            for this calculation. It
-                            should be noted that this up vector is provided by
-                            the programmer
-                            and is not the one used as the y-axis basis vector.
-                            Without this programmer-provided
-                            up vector, even if the forward vector is specified,
-                            the orientation of the camera is undefined. <B>It is
-                            assumed that
-                            the provided up vector is also normalized</B>.
-
+                            {t('sts.s3.view.p15.before')}<Math tex={"u'"}/>{t('sts.s3.view.p15.mid')}<B>{t('sts.s3.view.p15.bold')}</B>{t('sts.s3.view.p15.after')}
                         </Paragraph>
                         <Spacer/>
 
                         <Paragraph>
-                            <Math tex={'u\''}/> and <Math tex={'f'}/> define a
-                            plane, therefore <Math
-                            tex={'f \\times u\' = r'}/> {' '}
-                            without issue. It is for this
-                            reason that the specification of the provisional
-                            vector
-                            does not need to be absolutely precise: it just
-                            needs to be able to define a unique plane with <Math
-                            tex={'f'}/> to orient the camera in space.
+                            <Math tex={"u'"}/>{t('sts.s3.view.p16.before')}<Math tex={'f'}/>{t('sts.s3.view.p16.mid')}<Math tex={"f \\times u' = r"}/>{' '}
+                            {t('sts.s3.view.p16.mid2')}<Math tex={'f'}/>{t('sts.s3.view.p16.after')}
                         </Paragraph>
                         <Spacer/>
 
                         <Paragraph>
-                            Note that the obtained <Math tex={'r'}/> is
-                            also guaranteed to be normalized as a cross product
-                            of 2 normalized vectors.
+                            {t('sts.s3.view.p17.before')}<Math tex={'r'}/>{t('sts.s3.view.p17.after')}
                         </Paragraph>
                         <Spacer/>
 
                         <Paragraph>
-                            Finally, the basis vector for the y-axis is derived.
-                            <Math tex={'u\''}/> cannot be used as-is, as it
-                            may not be precisely orthonormal to either <Math
-                            tex={'f'}/> or <Math tex={'r'}/>. The "true
-                            up" <Math tex={'u'}/> is needed.
-                            Fortunately, this is straightforward: <Math
-                            tex={'u = r \\times f'}/>.
-
-                            <Math displayMode={true}
-                                  tex={'V_r = \\begin{bmatrix}' +
-                                      'r_x & u_x & -f_x & 0 \\\\' +
-                                      'r_y & u_y & -f_y & 0\\\\' +
-                                      'r_z & u_z & -f_z & 0\\\\' +
-                                      '0 & 0 & 0 & 1 \\end{bmatrix}'}/>
-
-                            Finally, the view matrix may be assembled.
-                            The order of operations is important: for a point in
-                            world space <Math
-                            tex={'p'}/>,
-                            first the point must be translated before the
-                            rotation is corrected i.e.,
+                            {t('sts.s3.view.p18.before')}<Math tex={"u'"}/>{t('sts.s3.view.p18.mid')}<Math tex={'f'}/>{t('sts.s3.view.p18.mid2')}<Math tex={'r'}/>{t('sts.s3.view.p18.mid3')}<Math tex={'u'}/>{t('sts.s3.view.p18.after')}<Math tex={'u = r \\times f'}/>{t('sts.s3.view.p18.end')}<Math tex={'p'}/>{t('sts.s3.view.p18.end2')}
                             <Math displayMode={true}
                                   tex={'\\begin{align*}' +
                                       'Vp &= {V_r}{V_l}p \\\\' +
@@ -654,108 +327,36 @@ function SceneToScreen() {
                     </Card>
 
                     <Card>
-                        <Paragraph size={2}>Normalized Device
-                            Coordinates</Paragraph>
+                        <Paragraph size={2}>{t('sts.s4.title')}</Paragraph>
                         <Spacer size={2}/>
 
-                        <Paragraph size={3}>Concept</Paragraph>
+                        <Paragraph size={3}>{t('sts.s4.concept.title')}</Paragraph>
                         <Spacer/>
-                        <Paragraph>In the previous section, a system was
-                            established such that any camera placed freely
-                            in any scene can be converted into a standard
-                            representation in eye space. From that point
-                            onwards, determining
-                            the corresponding pixels to illuminate on the
-                            monitor
-                            should be a trivial task.
+                        <Paragraph>{t('sts.s4.p1')}</Paragraph>
+                        <Spacer/>
+
+                        <Paragraph>{t('sts.s4.p2')}</Paragraph>
+                        <Spacer/>
+                        <Paragraph>{t('sts.s4.p3')}</Paragraph>
+                        <Spacer/>
+
+                        <Paragraph>{t('sts.s4.p4')}</Paragraph>
+                        <Spacer/>
+
+                        <Paragraph>
+                            {t('sts.s4.p5.before')}<I>{t('sts.s4.p5.italic')}</I>{t('sts.s4.p5.after')}
                         </Paragraph>
                         <Spacer/>
 
                         <Paragraph>
-                            However, there are still
-                            two pitfalls that need to be addressed.
-                        </Paragraph>
-                        <Spacer/>
-                        <Paragraph>
-                            First, the near plane was defined to have the exact
-                            same dimensions
-                            as the user's monitor. This is a convenient
-                            assumption but is impractical.
-                            Not only are there innumerable monitor sizes in the
-                            world,
-                            the programmer or designer adjusting the camera and
-                            placing objects in the
-                            scene has no idea of the user's monitor size.
-                        </Paragraph>
-                        <Spacer/>
-
-                        <Paragraph>
-                            Second, suppose that there are multiple objects
-                            in the scene instead of just one as in the example.
-                            Lines are projected from each object onto the near
-                            plane
-                            to determine where each object should be drawn on
-                            the screen.
-                            But what if the two objects are positioned such
-                            that,
-                            relative to the camera, one object is in front of
-                            the other?
-                            In this case, there are projected lines from both
-                            objects
-                            that share the same captured coordinate on the near
-                            plane.
-                            The projected coordinates of the object in front
-                            should always
-                            be prioritized, but since the output is only in two
-                            dimensions,
-                            there is no way for the renderer to know this
-                            information.
-                        </Paragraph>
-                        <Spacer/>
-
-                        <Paragraph>
-                            To resolve both issues, the concept of <I>normalized
-                            device
-                            coordinates</I> is needed. NDC space is a
-                            bounded
-                            coordinate space
-                            defined by the graphics API, and is typically
-                            uniform in shape i.e., a unit cube at the origin.
-                            A transformation is applied to transform
-                            all points in eye space into NDC space, such that
-                            all points within the viewing frustum of the camera
-                            are within the bounds of the NDC space.
-                            In essence, NDC space is a 3-dimensional normalized
-                            container consisting of projected near plane
-                            coordinates.
-                        </Paragraph>
-                        <Spacer/>
-
-                        <Paragraph>
-                            The NDC is mapped onto each user's screen on a
-                            monitor-by-monitor
-                            basis to accommodate size differences. in order to
-                            find out
-                            which pixels
-                            on the user's monitor should be illuminated. This
-                            way, the responsibility of having to know the target
-                            monitor size is removed from the people who worked
-                            on the scene.
-
-                            For Vulkan, NDC space is a half-cube centred at the
-                            origin,
-                            where <Math tex={'x \\in [-1, 1]'}/>, <Math
-                            tex={'y \\in [-1, 1]'}/>, <Math
-                            tex={'z \\in [0, 1]'}/>.
-
-                            From the <TextLink
-                            link={'https://docs.vulkan.org/spec/latest/chapters/vertexpostproc.html#vertexpostproc-clipping'}
-                        >documentation</TextLink>,
+                            {t('sts.s4.p6.before')}<Math tex={'x \\in [-1, 1]'}/>{t('sts.s4.p6.mid')}<Math tex={'y \\in [-1, 1]'}/>{t('sts.s4.p6.mid2')}<Math tex={'z \\in [0, 1]'}/>{t('sts.s4.p6.mid3')}{t('sts.s4.p6.link') === 'documentation'
+                            ? <TextLink link={'https://docs.vulkan.org/spec/latest/chapters/vertexpostproc.html#vertexpostproc-clipping'}>documentation</TextLink>
+                            : <TextLink link={'https://docs.vulkan.org/spec/latest/chapters/vertexpostproc.html#vertexpostproc-clipping'}>{t('sts.s4.p6.link')}</TextLink>}{t('sts.s4.p6.after')}
                         </Paragraph>
 
                         <SubCard>
                             <Paragraph>
-                                ...the <I>view volume</I> is defined by:
+                                {t('sts.s4.subcard1.before')}<I>{t('sts.s4.subcard1.italic')}</I>{t('sts.s4.subcard1.after.before')}
 
                                 <Math displayMode={true}
                                       tex={'\\begin{align*}' +
@@ -764,37 +365,22 @@ function SceneToScreen() {
                                           'z_m \\leq z_c \\leq w_c \\\\' +
                                           '\\end{align*}'}/>
 
-                                where
-                                if <CF>VkPipelineViewportDepthClipControlCreateInfoEXT</CF>
+                                {t('sts.s4.subcard1.where.before')}
+                                <CF>VkPipelineViewportDepthClipControlCreateInfoEXT</CF>
                                 <br/><C>::negativeOneToOne</C>
                                 {' '}
-                                is <C>VK_TRUE</C> <Math tex={'z_m'}/> is equal
-                                to <Math tex={'-w_c'}/> otherwise <Math
-                                tex={'z_m'}/> is equal to zero.
+                                {t('sts.s4.subcard1.where.mid')}<C>VK_TRUE</C>{t('sts.s4.subcard1.where.mid2')}<Math tex={'z_m'}/>{t('sts.s4.subcard1.where.after')}<Math tex={'-w_c'}/>{t('sts.s4.subcard1.where.end.before')}
                             </Paragraph>
                         </SubCard>
 
                         <Paragraph>
-                            The subscript <Math tex={'c'}/> refers to
-                            coordinates in <I>clip space</I>,
-                            which will be discussed later. What is important to
-                            understand now, for the purpose
-                            of the construction of the NDC space, is that clip
-                            space is an intermediary space between world space
-                            and NDC space.
+                            {t('sts.s4.p7.before')}<Math tex={'c'}/>{t('sts.s4.p7.mid')}<I>{t('sts.s4.p7.italic')}</I>{t('sts.s4.p7.after')}
                         </Paragraph>
 
-                        <Paragraph>
-                            Further down the same page,
-                        </Paragraph>
+                        <Paragraph>{t('sts.s4.p8')}</Paragraph>
                         <SubCard>
                             <Paragraph>
-                                Perspective division on clip coordinates
-                                yields <I>
-                                normalized device coordinates</I>...
-                                If a vertex in clip coordinates has a position
-                                given
-                                by
+                                {t('sts.s4.subcard2.before')}<I>{t('sts.s4.subcard2.italic')}</I>{t('sts.s4.subcard2.after')}
                                 <Math displayMode={true}
                                       tex={'\\begin{bmatrix}' +
                                           'x_c \\\\' +
@@ -803,8 +389,7 @@ function SceneToScreen() {
                                           'w_c' +
                                           '\\end{bmatrix}'}/>
 
-                                then the vertex's normalized device coordinates
-                                are
+                                {t('sts.s4.subcard2.end')}
                                 <Math displayMode={true}
                                       tex={'\\begin{bmatrix}' +
                                           'x_d \\\\' +
@@ -822,7 +407,7 @@ function SceneToScreen() {
                         <Spacer size={4}/>
 
                         <Paragraph>
-                            The implication is as follows: the NDC space is
+                            {t('sts.s4.p9.before')}
                             <Math displayMode={true}
                                   tex={'\\begin{align*}' +
                                       '-1 \\leq x_d \\leq 1 \\\\' +
@@ -831,113 +416,38 @@ function SceneToScreen() {
                                       '\\end{align*}'}/>
                         </Paragraph>
 
-                        <Paragraph>
-                            NDC space maps directly into screen (space).
-                            But what exactly is the screen? The target surface
-                            for the renderer to draw to, to display the
-                            projected coordinates,
-                            is not (though it can be) the entirety of the user's
-                            monitor.
-                            It is more likely that there is some fixed region on
-                            the monitor
-                            where the output image is displayed.
-                        </Paragraph>
+                        <Paragraph>{t('sts.s4.p10.before')}</Paragraph>
                         <Spacer/>
                         <Paragraph>
-                            In fact, before rendering even starts, the Vulkan
-                            application obtains a handle to some surface
-                            on the monitor from the operating system. This
-                            handle
-                            is <CT>VkSurfaceKHR</CT>, an opaque pointer to
-                            an operating system resource.
-                            The surface can be thought of as the region of
-                            pixels on the monitor
-                            the operating system has permitted the application
-                            to control. The very browser in which this website
-                            is rendered
-                            is most certainly part of some similar surface as
-                            well.
+                            {t('sts.s4.p11.before')}<CT>VkSurfaceKHR</CT>{t('sts.s4.p11.mid')}
                         </Paragraph>
                         <Spacer/>
 
-                        <Paragraph size={3}>Viewport transformation</Paragraph>
+                        <Paragraph size={3}>{t('sts.s4.viewport.title')}</Paragraph>
+                        <Paragraph>{t('sts.s4.viewport.p1')}</Paragraph>
+                        <Spacer/>
+
                         <Paragraph>
-                            A note about the precise way NDC coordinates are
-                            mapped onto the surface. The information in NDC
-                            space is
-                            converted into a set of values and written into a
-                            structure called a framebuffer.
+                            {t('sts.s4.viewport.p2.before')}<CT>VkImage</CT>{t('sts.s4.viewport.p2.mid')}<CT>VkAttachment</CT>{t('sts.s4.viewport.p2.after')}
                         </Paragraph>
                         <Spacer/>
 
                         <Paragraph>
-                            A framebuffer can be thought of as a collection of
-                            handles to rectangular x by y buffers, each
-                            typically of the
-                            same dimensions as the surface. Each individual
-                            buffer is known in Vulkan as a <CT>VkImage</CT>,
-                            reflecting the resemblance to the common
-                            idea of an image: an x by y array. Each handle is
-                            known
-                            as a <CT>VkAttachment</CT>.
+                            {t('sts.s4.viewport.p3.before')}<I>{t('sts.s4.viewport.p3.italic')}</I>{t('sts.s4.viewport.p3.after')}
+                        </Paragraph>
+                        <Spacer/>
+                        <Paragraph>
+                            {t('sts.s4.viewport.p4.before')}<Math tex={'(x, y)'}/>{t('sts.s4.viewport.p4.mid')}<Math tex={'(x, y)'}/>{t('sts.s4.viewport.p4.after')}
                         </Paragraph>
                         <Spacer/>
 
                         <Paragraph>
-                            The <I>viewport transformation</I> is an implicit
-                            but configurable step performed by Vulkan to convert
-                            the
-                            NDC into several sets of values. These resulting
-                            values are
-                            then written into separate attachments within the
-                            framebuffer.
-                            Finally, the buffers are used directly for the final
-                            output onto the monitor
-                        </Paragraph>
-                        <Spacer/>
-                        <Paragraph>
-                            The easiest example to understand is that of the
-                            color attachment.
-
-                            For each point in NDC space, the viewport
-                            transformation is
-                            performed to obtain its <Math
-                            tex={'(x, y)'}/> screen coordinate, and a color
-                            value written into the color
-                            attachment at that location. This color
-                            value is directly displayed on the surface at <Math
-                            tex={'(x, y)'}/>, completing the
-                            graphics pipeline.
-                        </Paragraph>
-                        <Spacer/>
-
-                        <Paragraph>
-                            Another important and frequently present attachment
-                            is the depth attachment. Each point in NDC space has
-                            a z-coordinate.
-                            After undergoing the viewport transformation, the
-                            processed z-coordinate
-                            is written into the depth attachment as a <I>depth
-                            value</I>.
-                            For each subsequent point processed, if the point
-                            happens to end up
-                            at the same <Math tex={'(x, y)'}/>
+                            {t('sts.s4.viewport.p5.before')}<I>{t('sts.s4.viewport.p5.italic')}</I>{t('sts.s4.viewport.p5.after')}<Math tex={'(x, y)'}/>
                         </Paragraph>
 
                         <SubCard>
                             <Paragraph>
-                                The viewport transformation is determined by the
-                                selected viewport's width and height in
-                                pixels, <Math tex={'p_x'}/>
-                                and <Math tex={'p_y'}/> respectively, and its
-                                center <Math tex={'(o_x, o_y)'}/> (also in
-                                pixels),
-                                as well as its depth range min and max
-                                determining a depth range scale value
-                                <Math tex={'p_z'}/> and a depth range bias
-                                value <Math tex={'o_z'}/> (defined below).
-                                The vertex's framebuffer coordinates <Math
-                                tex={'(x_f, y_f)'}/> are given by
+                                {t('sts.s4.viewport.subcard.before')}<Math tex={'p_x'}/>{t('sts.s4.viewport.subcard.mid1')}<Math tex={'p_y'}/>{t('sts.s4.viewport.subcard.mid2')}<Math tex={'(o_x, o_y)'}/>{t('sts.s4.viewport.subcard.mid3')}<Math tex={'p_z'}/>{t('sts.s4.viewport.subcard.mid4')}<Math tex={'o_z'}/>{t('sts.s4.viewport.subcard.after')}<Math tex={'(x_f, y_f)'}/>{t('sts.s4.viewport.subcard.end')}
 
                                 <Math displayMode={true}
                                       tex={'\\begin{align*}' +
@@ -949,128 +459,49 @@ function SceneToScreen() {
                         </SubCard>
 
                         <Paragraph>
-                            Vulkan thus states that <Math
-                            tex={'x_d = -1'}/> corresponds to
-                            the left
-                            edge of this surface, and <Math
-                            tex={'x_d = 1'}/> corresponds to
-                            the right edge
-                            of this surface. Similarly, <Math
-                            tex={'y_d = -1'}/> corresponds to the top edge of
-                            this surface, and <Math
-                            tex={'y_d = 1'}/> corresponds
-                            to the bottom edge
-                            of this surface.
-
-                            The z-coordinate of each point in the NDC is the
-                            <I> depth</I> of the point. Vulkan states that
-                            a point at <Math tex={'z = 0'}/> is exactly
-                            at the depth of the near plane, and a point at {' '}
-                            <Math tex={'z = 1'}/> is exactly at the depth of
-                            the far plane.
-                            That is, relative to the camera, a point at <Math
-                            tex={'z = 0.1'}/>
-                            is closer to the camera than a point at <Math
-                            tex={'z = 0.2'}/>.
-
-                            The matrix that performs this transformation is
-                            called the <I>projection matrix</I>.
-                            The projection matrix is named as such because it
-                            projects
-                            points in eye space into NDC space. Note that the
-                            matrix
-                            encompasses two operations: first, the projection of
-                            points on objects
-                            onto the near plane, and second, the projection of
-                            the captured points
-                            on the near plane into NDC space.
-                            With this abstraction for representing captured
-                            coordinates,
-                            the programmer is not only able to standardize the
-                            representation of a scene regardless of monitor
-                            size,
-                            but also embed key information
-                            about the depth of each point in the scene.
-                            The NDC space thus provides a comprehensive
-                            representation
-                            that allows any GPU to interpret and display the
-                            same scene,
-                            and with correct front-to-back ordering as well.
+                            {t('sts.s4.viewport.p6.before')}<Math tex={'x_d = -1'}/>{t('sts.s4.viewport.p6.mid1')}<Math tex={'x_d = 1'}/>{t('sts.s4.viewport.p6.mid2')}<Math tex={'y_d = -1'}/>{t('sts.s4.viewport.p6.mid3')}<Math tex={'y_d = 1'}/>{t('sts.s4.viewport.p6.mid4')}<I>{t('sts.s4.viewport.p6.italic')}</I>{t('sts.s4.viewport.p6.mid5')}<Math tex={'z = 0'}/>{t('sts.s4.viewport.p6.mid6')}{' '}<Math tex={'z = 1'}/>{t('sts.s4.viewport.p6.mid7')}<Math tex={'z = 0.1'}/>{t('sts.s4.viewport.p6.mid8')}<Math tex={'z = 0.2'}/>{t('sts.s4.viewport.p6.mid9')}<I>{t('sts.s4.viewport.p6.italic2')}</I>{t('sts.s4.viewport.p6.after')}
                         </Paragraph>
 
-                        <Paragraph size={3}>NDC space</Paragraph>
+                        <Paragraph size={3}>{t('sts.s4.ndc.title')}</Paragraph>
                         <Spacer/>
-                        <Paragraph>
-                            First, objects in the scene are projected onto
-                            the near plane.
-                        </Paragraph>
+                        <Paragraph>{t('sts.s4.ndc.p1')}</Paragraph>
                         <Spacer/>
-                        <Paragraph>The projected x and y coordinates
-                            are tackled first.
-                            Recall that the camera points down the negative
-                            z-axis in eye space.
-                            Let:
+                        <Paragraph>{t('sts.s4.ndc.p2.before')}
                             <Math displayMode={true} tex={'\\begin{align*}' +
                                 'p_e &=  (x_e, y_e, z_e, w_e) \\\\' +
                                 'p_p &=  (x_p, y_p, z_p, w_p) \\\\' +
                                 'p_n &=  (x_n, y_n, z_n, w_n) \\\\' +
                                 '\\end{align*}'}/>
-                            where <Math tex={'p_e'}/> is the point in eye
-                            space, {' '}
-                            <Math tex={'p_p'}/> is the projected point on the
-                            near plane, and
-                            <Math tex={'p_n'}/> is the point in NDC space.
-                            Let the near plane be at <Math
-                                tex={'z = -n, n > 0'}/> and the far plane be
-                            at {' '}
-                            <Math tex={'z = -f, f > n > 0'}/>.
-                            Let <Math tex={'t, b, l, r'}/> represent the top,
-                            bottom, left and right edges of the near plane,
-                            respectively.
-                            By the ratio of similar triangles,
+                            {t('sts.s4.ndc.p2.mid')}<Math tex={'p_e'}/>{t('sts.s4.ndc.p2.mid2')}{' '}
+                            <Math tex={'p_p'}/>{t('sts.s4.ndc.p2.mid3')}
+                            <Math tex={'p_n'}/>{t('sts.s4.ndc.p2.mid4')}<Math tex={'z = -n, n > 0'}/>{t('sts.s4.ndc.p2.mid5')}{' '}
+                            <Math tex={'z = -f, f > n > 0'}/>{t('sts.s4.ndc.p2.mid6')}
+                            <Math tex={'t, b, l, r'}/>{t('sts.s4.ndc.p2.mid7')}
                             <Math displayMode={true}
                                   tex={'\\begin{align*}' +
                                       '\\frac{y_p}{y_e} &= \\frac{-n}{z_e}\\' +
                                       '\\∴  y_p &= \\frac{n \\cdot y_e}{-z_e} \\tag{1}' +
                                       '\\end{align*}'}/>
 
-                            Similarly,
+                            {t('sts.s4.ndc.p2.similarly')}
                             <Math displayMode={true}
                                   tex={'\\begin{align*}' +
                                       '\\frac{x_p}{x_e} &= \\frac{-n}{z_e}\\' +
                                       '\\∴  x_p &= \\frac{n \\cdot x_e}{-z_e} \\tag{2}' +
                                       '\\end{align*}'}/>
 
-                            Next, the formula to transform <Math tex={'p_p'}/>
-                            into its corresponding location in NDC space is
-                            considered.
-                            Vulkan states that, in NDC space, <Math
-                                tex={'y = -1'}/> is
-                            the top edge of the surface. This implies that <Math
-                                tex={'t'}/>
-                            should be mapped to <Math tex={'y = -1'}/>.
-                            Therefore, <Math tex={'b'}/> should be mapped
-                            to <Math tex={'y = 1'}/>.
-                            This is a linear mapping problem where the mapping
-                            function
-                            is of the form <Math
-                                tex={'y_n = My_p + B'}/>, where <Math
-                                tex={'M'}/> is
-                            the
-                            gradient and <Math tex={'B'}/> is the intercept.
+                            {t('sts.s4.ndc.p2.next.before')}<Math tex={'p_p'}/>{t('sts.s4.ndc.p2.next.mid')}<Math tex={'y = -1'}/>{t('sts.s4.ndc.p2.next.mid2')}<Math tex={'t'}/>{t('sts.s4.ndc.p2.next.mid3')}<Math tex={'y = -1'}/>{t('sts.s4.ndc.p2.next.mid4')}<Math tex={'b'}/>{t('sts.s4.ndc.p2.next.mid5')}<Math tex={'y = 1'}/>{t('sts.s4.ndc.p2.next.mid6')}<Math tex={'y_n = My_p + B'}/>{t('sts.s4.ndc.p2.next.mid7')}<Math tex={'M'}/>{t('sts.s4.ndc.p2.next.mid8')}<Math tex={'B'}/>{t('sts.s4.ndc.p2.next.after')}
                             <Math displayMode={true}
                                   tex={'\\begin{align*}' +
                                       'M &= \\frac{1 - (-1)}{b-t} \\\\' +
                                       '&= \\frac{2}{b-t} \\\\' +
                                       '\\end{align*}'
                                   }/>
-
-
                             <Math displayMode={true}
                                   tex={'\\begin{align*}' +
                                       'y_n = \\frac{2}{b-t} \\cdot y_p + B \\\\' +
                                       '\\end{align*}'}/>
-                            Substituting the point <Math tex={'(b, 1)'}/>,
+                            {t('sts.s4.ndc.p2.sub.before')}<Math tex={'(b, 1)'}/>
                             <Math displayMode={true}
                                   tex={
                                       '\\begin{align*}' +
@@ -1087,7 +518,7 @@ function SceneToScreen() {
                                   tex={'∴ y_n = \\frac{2}{b-t} \\cdot y_p + \\frac{b+t}{t-b} \\tag{3}'}
                             />
 
-                            Similarly, <Math tex={'x_n = Mx_p + B'}/>.
+                            {t('sts.s4.ndc.p2.similarly2')}<Math tex={'x_n = Mx_p + B'}/>
                             <Math displayMode={true}
                                   tex={'\\begin{align*}' +
                                       'M &= \\frac{1-(-1)}{r-l} \\\\' +
@@ -1098,7 +529,7 @@ function SceneToScreen() {
                             <Math displayMode={true}
                                   tex={'x_n = \\frac{2}{r-l} \\cdot x_p + \\frac{r+l}{l-r}'}/>
 
-                            Substituting the point <Math tex={'(r, 1)'}/>,
+                            {t('sts.s4.ndc.p2.sub2.before')}<Math tex={'(r, 1)'}/>
                             <Math displayMode={true}
                                   tex={'\\begin{align*}' +
                                       '1 &= \\frac{2}{r-l} \\cdot r + B \\\\' +
@@ -1113,25 +544,17 @@ function SceneToScreen() {
                                   tex={'∴ x_n = \\frac{2}{r-l} \\cdot x_p + \\frac{r+l}{l-r} \\tag{4}'}
                             />
 
-                            Combining equations 1 and 3, the function
-                            mapping {' '}
-                            <Math tex={'y_e'}/> to <Math
-                                tex={'y_p'}/> is
-                            obtained.
+                            {t('sts.s4.ndc.p2.combine.before')}{' '}<Math tex={'y_e'}/>{t('sts.s4.ndc.p2.combine.mid')}<Math tex={'y_p'}/>{t('sts.s4.ndc.p2.combine.after')}
 
                             <Math displayMode={true}
                                   tex={'y_n = \\frac{2}{b-t} \\frac{n \\cdot y_e}{-z_e} + \\frac{b+t}{t-b} \\tag{5}'}/>
 
-                            Similarly, combining equations 2 and 4, the function
-                            <Math tex={'x_e'}/> to <Math tex={'x_p'}/> is
-                            obtained.
+                            {t('sts.s4.ndc.p2.combine2.before')}<Math tex={'x_e'}/>{t('sts.s4.ndc.p2.combine2.mid')}<Math tex={'x_p'}/>{t('sts.s4.ndc.p2.combine2.after')}
 
                             <Math displayMode={true}
                                   tex={'x_n = \\frac{2}{r-l} \\frac{n \\cdot x_e}{-z_e} + \\frac{r+l}{l-r} \\tag{6}'}/>
 
-                            At this junction the form of the projection matrix
-                            is considered.
-                            Let the 4x4 projection matrix be
+                            {t('sts.s4.ndc.p3.before')}
                             <Math displayMode={true}
                                   tex={'\\begin{bmatrix}' +
                                       'x_p \\\\' +
@@ -1154,53 +577,22 @@ function SceneToScreen() {
                                   }
                             />
 
-                            Immediately an issue is apparent: <Math
-                                tex='m_{00}'/> {' '}
-                            needs to be <Math displayMode={true}
-                                              tex={'\\frac{2n}{(r-l){(-z_e)}}'}/>
+                            {t('sts.s4.ndc.p3.issue.before')}<Math tex='m_{00}'/>{' '}{t('sts.s4.ndc.p3.issue.mid')}
+                            <Math displayMode={true}
+                                  tex={'\\frac{2n}{(r-l){(-z_e)}}'}/>
 
-                            However, there is no way of introducing a term
-                            into <Math tex={'P'}/> that performs the required
-                            division operation. An identical issue arises
-                            when deriving <Math tex={'m_{10}'}/> for the
-                            conversion of <Math tex={'y_e'}/> to <Math
-                                tex={'y_p'}/>: <Math tex={'m_{10}'}/> needs to
-                            be
+                            {t('sts.s4.ndc.p3.issue.p2.before')}<Math tex={'P'}/>{t('sts.s4.ndc.p3.issue.p2.mid')}<Math tex={'m_{10}'}/>{t('sts.s4.ndc.p3.issue.p2.mid2')}<Math tex={'m_{10}'}/>{t('sts.s4.ndc.p3.issue.p2.mid3')}<Math tex={'y_e'}/>{t('sts.s4.ndc.p2.combine.mid')}<Math tex={'y_p'}/>{': '}<Math tex={'m_{10}'}/>{t('sts.s4.ndc.p3.issue.p2.after')}
                             <Math displayMode={true}
                                   tex={'\\frac{2n}{(b-t){(-z_e)}}'}
                             />
 
-                            Note that during the transformation of both
-                            x and y terms, division by the same factor <Math
-                                tex={'-z_e'}/>
-                            is required.
+                            {t('sts.s4.ndc.p3.note.before')}<Math tex={'-z_e'}/>{t('sts.s4.ndc.p3.note.after')}
 
-                            The issue is resolved by introducing an intermediate
-                            coordinate space, called <I>clip space</I>. Clip
-                            space is
-                            an abstract space that sits between eye space and
-                            NDC space. The way clip space resolves the issue is
-                            by allowing the division by <Math tex={'z_e'}/> to
-                            be deferred to a later step called <I>perspective
-                                division</I>.
+                            {t('sts.s4.ndc.p3.clip.before')}<I>{t('sts.s4.ndc.p3.clip.italic')}</I>{t('sts.s4.ndc.p3.clip.mid')}<Math tex={'z_e'}/>{t('sts.s4.ndc.p3.clip.mid2')}<I>{t('sts.s4.ndc.p3.clip.italic2')}</I>{t('sts.s4.ndc.p3.clip.after')}
                         </Paragraph>
                         <Spacer/>
                         <Paragraph>
-                            First, the coordinates are transformed from eye
-                            space
-                            to clip space. Then, the coordinates in clip space
-                            undergo
-                            perspective division, becoming NDC.
-
-                            In fact, the perspective division step is so
-                            universally
-                            performed that Vulkan performs this step implicitly
-                            for
-                            the programmer. As per the specification, for clip
-                            space coordinates
-                            <Math tex={'(x_c, y_c, z_c, w_c)'}/>, Vulkan will
-                            automatically perform perspective division to
-                            obtain NDC:
+                            {t('sts.s4.ndc.p4.before')}<Math tex={'(x_c, y_c, z_c, w_c)'}/>{t('sts.s4.ndc.p4.after')}
                             <Math displayMode={true}
                                   tex={'\\begin{align*}' +
                                       'x_n = \\frac{x_c}{w_c} \\\\' +
@@ -1208,8 +600,7 @@ function SceneToScreen() {
                                       'z_n = \\frac{z_c}{w_c} \\\\' +
                                       '\\end{align*}'}/>
 
-                            With this intermediate space defined, let the 4x4
-                            projection matrix be <Math tex={'P'}/>, such that
+                            {t('sts.s4.ndc.p5.before')}<Math tex={'P'}/>{t('sts.s4.ndc.p5.after')}
                             <Math displayMode={true}
                                   tex={'\\begin{bmatrix}' +
                                       'x_c \\\\' +
@@ -1232,9 +623,7 @@ function SceneToScreen() {
                                       '\\end{bmatrix}'
                                   }/>
 
-                            <Math tex={'w_c'}/> must equal <Math tex={'z_e'}/>,
-                            therefore
-                            the last row of <Math tex={'P'}/> can be filled in:
+                            <Math tex={'w_c'}/>{t('sts.s4.ndc.p6.before')}<Math tex={'z_e'}/>{t('sts.s4.ndc.p6.mid')}<Math tex={'P'}/>{t('sts.s4.ndc.p6.after')}
                             <Math displayMode={true}
                                   tex={'\\begin{bmatrix}' +
                                       'x_c \\\\' +
@@ -1258,14 +647,14 @@ function SceneToScreen() {
                                   }/>
 
 
-                            Now, reconsidering equation 5:
+                            {t('sts.s4.ndc.p7')}
                             <Math displayMode={true}
                                   tex={'\\begin{align*} y_n = \\frac{y_c}{w_c} &= ' +
                                       '\\frac{2}{b-t} \\frac{n \\cdot y_e}{-z_e} + \\frac{b+t}{t-b} \\\\' +
                                       'y_c &= \\frac{2n}{b-t} \\cdot y_e + \\frac{b+t}{t-b} \\cdot (-z_e)' +
                                       '\\end{align*}'
                                   }/>
-                            and equation 6:
+                            {t('sts.s4.ndc.p8')}
                             <Math displayMode={true}
                                   tex={'\\begin{align*} x_n = \\frac{x_c}{w_c} &= ' +
                                       '\\frac{2}{r-l} \\frac{n \\cdot x_e}{-z_e} + \\frac{r+l}{l-r} \\\\' +
@@ -1273,8 +662,7 @@ function SceneToScreen() {
                                       '\\end{align*}'
                                   }/>
 
-                            Now, the first two rows of <Math tex={'P'}/> can
-                            also be determined.
+                            {t('sts.s4.ndc.p9.before')}<Math tex={'P'}/>{t('sts.s4.ndc.p9.after')}
 
                             <Math displayMode={true}
                                   tex={'\\begin{bmatrix}' +
@@ -1298,40 +686,19 @@ function SceneToScreen() {
                                       '\\end{bmatrix}'
                                   }/>
 
-                            The final problem to tackle is the transformation
-                            from <Math tex={'z_e'}/> to <Math tex={'z_c'}/>.
+                            {t('sts.s4.ndc.p10.before')}<Math tex={'z_e'}/>{t('sts.s4.ndc.p10.mid')}<Math tex={'z_c'}/>{t('sts.s4.ndc.p10.after')}
 
-                            Interestingly, the previous approach for finding the
-                            mapping functions for x and y don't work for z. The
-                            approach first
-                            found <Math tex={'x_p'}/> and <Math tex={'y_p'}/> on
-                            the near plane,
-                            then mapped them to the NDC bounds. Consider the
-                            z-coordinate:
-                            the <Math tex={'z_p = n'}/> in all situations, by
-                            definition.
+                            {t('sts.s4.ndc.p11.before')}<Math tex={'x_p'}/>{t('sts.s4.ndc.p11.mid')}<Math tex={'y_p'}/>{t('sts.s4.ndc.p11.mid2')}<Math tex={'z_p = n'}/>{t('sts.s4.ndc.p11.after')}
 
-                            One could attempt to skip the near plane projection
-                            step,
-                            and instead seek a direct linear map from <Math
-                            tex={'z_e'}/> to <Math
-                            tex={'z_n'}/>. <Math
-                            tex={'[n, f] \\rightarrow [0, 1]'}/>, so
+                            {t('sts.s4.ndc.p12.before')}<Math tex={'z_e'}/>{t('sts.s4.ndc.p12.mid')}<Math tex={'z_n'}/>{t('sts.s4.ndc.p12.mid2')}<Math tex={'[n, f] \\rightarrow [0, 1]'}/>{t('sts.s4.ndc.p12.after')}
                             <Math displayMode={true}
                                   tex={'\\begin{align*}' +
                                       'z_n = \\frac{z_c}{w_c} &= \\frac{1}{f-n} \\cdot z_e + \\frac{n}{n-f} \\\\' +
                                       'z_c &= \\frac{1}{f-n} \\cdot -({z_e}^2) + \\frac{n}{n-f} \\cdot {(-z_e)} \\\\' +
                                       '\\end{align*}'}/>
-                            and the same issue is encountered, where it is
-                            not possible to introduce the <Math tex='{z_e}^2'/>
-                            term into <Math tex='P'/>.
+                            {t('sts.s4.ndc.p12.end.before')}<Math tex={'{z_e}^2'}/>{t('sts.s4.ndc.p12.end.mid')}<Math tex='P'/>{t('sts.s4.ndc.p12.end.after')}
 
-                            An alternative approach is desired. It is known
-                            that <Math tex={'z_c'}/> is dependent on
-                            neither <Math tex={'x_e'}/>
-                            nor <Math tex={'y_e'}/>, thus the third row of <Math
-                            tex={'P'}/> can be expressed
-                            as follows:
+                            {t('sts.s4.ndc.p13.before')}<Math tex={'z_c'}/>{t('sts.s4.ndc.p13.mid')}<Math tex={'x_e'}/>{t('sts.s4.ndc.p13.mid2')}<Math tex={'y_e'}/>{t('sts.s4.ndc.p13.mid3')}<Math tex={'P'}/>{t('sts.s4.ndc.p13.after')}
 
                             <Math displayMode={true}
                                   tex={'\\begin{bmatrix}' +
@@ -1355,7 +722,7 @@ function SceneToScreen() {
                                       '\\end{bmatrix}'
                                   }/>
 
-                            Note that <Math tex={'w_e'}/> is always 1.
+                            {t('sts.s4.ndc.p14.before')}<Math tex={'w_e'}/>{t('sts.s4.ndc.p14.after')}
 
                             <Math displayMode={true}
                                   tex={'\\begin{align*} ' +
@@ -1363,8 +730,7 @@ function SceneToScreen() {
                                       'z_n &= \\frac{A \\cdot z_e + B}{-z_e}' +
                                       '\\end{align*}'}/>
 
-                            Solving a linear system with 2 variables requires
-                            2 inputs. Luckily, exactly two inputs are available.
+                            {t('sts.s4.ndc.p15')}
 
                             <Math displayMode={true}
                                   tex={'\\begin{align*}' +
@@ -1377,7 +743,7 @@ function SceneToScreen() {
                                       '\\rightarrow B &= \\frac{fn}{n-f}' +
                                       '\\end{align*}'}/>
 
-                            The final derived <Math tex={'P'}/> is thus
+                            {t('sts.s4.ndc.p16.before')}<Math tex={'P'}/>{t('sts.s4.ndc.p16.after')}
 
                             <Math displayMode={true}
                                   tex={'\\begin{bmatrix}' +
@@ -1402,7 +768,6 @@ function SceneToScreen() {
                     animationData={animationData}
                     marker={currentMarker}/>
             </div>
-            <Button route='' linkText='JP'/>
         </div>
     );
 }

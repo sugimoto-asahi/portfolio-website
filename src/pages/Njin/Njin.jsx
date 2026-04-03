@@ -1,7 +1,5 @@
 import React from 'react';
 import styles from './Njin.module.css'
-import ArrowButton from "@components/ArrowButton/ArrowButton.jsx";
-import Button from "@components/Button/Button.jsx";
 import {Card} from "@components/Card/Card.jsx";
 import Paragraph from "@components/Paragraph/Paragraph.jsx";
 import Spacer from "@components/Spacer/Spacer.jsx";
@@ -14,13 +12,9 @@ import TextLink from "@components/TextLink/TextLink.jsx";
 import {useLanguage} from "@i18n/LanguageContext.jsx";
 
 function Njin() {
-    const {lang, toggleLang, t} = useLanguage();
+    const {t} = useLanguage();
     return (
-        <div className={styles.njin}>
-            <ArrowButton route='/' direction='left'
-                         className={styles.arrowButton}/>
-
-            <div className={styles.content}>
+        <div className={styles.content}>
                 <Card>
                     <Paragraph size={1}>{t('njin.page.title')}</Paragraph>
                     <Paragraph size={2}>{t('njin.page.subtitle')}</Paragraph>
@@ -203,11 +197,7 @@ function Njin() {
                     <Spacer/>
                     <Paragraph>{t('njin.demo.p2')}</Paragraph>
                 </Card>
-            </div>
-            <Button onClick={toggleLang} type='action' linkText={lang === 'en' ? 'JP' : 'EN'}/>
-
         </div>
-
     );
 
 }

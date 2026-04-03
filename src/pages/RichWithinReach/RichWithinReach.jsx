@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './RichWithinReach.module.css'
-import ArrowButton from "@components/ArrowButton/ArrowButton.jsx";
 import {Card} from "@components/Card/Card.jsx";
 import Button from "@components/Button/Button.jsx";
 import text_styles from '@styles/text.module.css'
@@ -13,13 +12,9 @@ import List from "@components/List/List.jsx";
 import {useLanguage} from "@i18n/LanguageContext.jsx";
 
 function RichWithinReach() {
-    const {lang, toggleLang, t} = useLanguage();
+    const {t} = useLanguage();
     return (
-        <div className={styles.richWithinReach}>
-            <ArrowButton route='/' direction='left'
-                         className={styles.arrowButton}/>
-
-            <div className={styles.content}>
+        <div className={styles.content}>
                 <Card>
                     <Paragraph size={1}>{t('rwr.page.title')}</Paragraph>
                     <Paragraph size={2}>{t('rwr.page.subtitle')}</Paragraph>
@@ -241,10 +236,8 @@ function RichWithinReach() {
                     <Spacer/>
                     <Paragraph>{t('rwr.modeling.p5')}</Paragraph>
                 </Card>
-            </div>
-
-            <Button onClick={toggleLang} type='action' linkText={lang === 'en' ? 'JP' : 'EN'}/>
-        </div>);
+        </div>
+    );
 }
 
 export default RichWithinReach;

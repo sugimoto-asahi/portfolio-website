@@ -11,47 +11,38 @@ import Code from "@components/Code/Code.jsx";
 import SvgContainer from "@components/SvgContainer/SvgContainer.jsx";
 import IsometricScene from "@svg/IsometricScene.jsx";
 import ScreenView from "@svg/ScreenView.jsx";
+import {useLanguage} from "@i18n/LanguageContext.jsx";
 
 
 function TheVulkanModel() {
+    const {t} = useLanguage();
     return (
         <div className={styles.theVulkanModel}>
-
             <Card>
-                <Paragraph size={2}>About this article</Paragraph>
+                <Paragraph size={1} className={styles.title}>{t('articles.vulkan.title')}</Paragraph>
+            </Card>
+            <Card>
+                <Paragraph size={2}>{t('vulkan.about.title')}</Paragraph>
                 <Spacer size={5}/>
-                <Paragraph>This article is meant for:
-                </Paragraph>
+                <Paragraph>{t('vulkan.about.audience.intro')}</Paragraph>
 
                 <List>
-                        <span>users who have a
-                        level of understanding of graphics programming</span>
-                    <span>have past experience with abstracted specifications
-                        like OpenGL and want to see how similar concepts
-                        appear in Vulkan</span>
-                    <span>those who need deep renderer customisation,
-                            and so want a conceptual understanding of the Vulkan rendering model</span>
-                    <span>those who want to understand how Vulkan is structured,
-                            so looking up documentation and features to achieve what they want is easier</span>
+                    <span>{t('vulkan.about.audience.1')}</span>
+                    <span>{t('vulkan.about.audience.2')}</span>
+                    <span>{t('vulkan.about.audience.3')}</span>
+                    <span>{t('vulkan.about.audience.4')}</span>
                 </List>
                 <Spacer size={5}/>
 
-                <Paragraph>This article will:</Paragraph>
+                <Paragraph>{t('vulkan.about.will.intro')}</Paragraph>
                 <List>
-                        <span>discuss each step of the journey from a user-defined
-                            3D coordinate space to the eventual screen render</span>
-                    <span>note the pitfalls and gotchas hidden deep in the specification</span>
-                    <span>convince the reader of the fundamental Vulkan model
-                            with illustrations and reference to documentation</span>
+                    <span>{t('vulkan.about.will.1')}</span>
+                    <span>{t('vulkan.about.will.2')}</span>
+                    <span>{t('vulkan.about.will.3')}</span>
                 </List>
 
                 <Spacer/>
-                <Paragraph>As a general description of the level of
-                    understanding expected,
-                    the following terms should make some sort of sense,
-                    or ring some sort of bell in the reader. If the terms
-                    mentioned are at least recognisable, it's probably good
-                    enough.</Paragraph>
+                <Paragraph>{t('vulkan.about.prereq')}</Paragraph>
                 <Spacer/>
 
                 <List>
@@ -63,18 +54,15 @@ function TheVulkanModel() {
 
 
             <Card>
-                <Paragraph size={2}>The issue</Paragraph>
+                <Paragraph size={2}>{t('vulkan.issue.title')}</Paragraph>
                 <Spacer size={2}/>
-                <Paragraph>
-                    Suppose the input is a user-defined, arbitrary 3D
-                    world:</Paragraph>
+                <Paragraph>{t('vulkan.issue.input')}</Paragraph>
                 <Spacer size={2}/>
                 <SvgContainer SvgComponent={IsometricScene}
                               style={{width: '70%'}}/>
 
                 <Spacer size={2}/>
-                <Paragraph>...and the output is the corresponding render
-                    from the point of view of the camera.</Paragraph>
+                <Paragraph>{t('vulkan.issue.output')}</Paragraph>
                 <Spacer size={2}/>
                 <SvgContainer SvgComponent={ScreenView}
                               style={{width: '70%'}}/>
@@ -83,78 +71,43 @@ function TheVulkanModel() {
             </Card>
 
             <Card>
-                <Paragraph size={2}>About graphics in Vulkan</Paragraph>
+                <Paragraph size={2}>{t('vulkan.graphics.title')}</Paragraph>
                 <Spacer size={2}/>
-                <Paragraph><B>Vulkan</B> is a low-level graphics
-                    API that provides more control to the programmer
-                    than older, higher-level APIs like OpenGL or DirectX 11.
+                <Paragraph><B>Vulkan</B>{t('vulkan.graphics.p1.after')}
                 </Paragraph>
                 <Spacer size={5}/>
-                <Paragraph>The Vulkan model is extremely explicit.
-                    OpenGL is to Vulkan as C is to assembly.
-                    That is not to say that writing Vulkan will look like
-                    writing assembly; the comparison is intended to give
-                    the reader an intuition regarding the drop in the level
-                    of abstraction.
-                </Paragraph>
-                <Spacer size/>
-                <Paragraph>One of the most important things the Vulkan
-                    specification
-                    offers is an interface for the programmer to create
-                    resources on / configure the operation of GPUs in a
-                    manufacturer-agnostic manner.
-                </Paragraph>
+                <Paragraph>{t('vulkan.graphics.p2')}</Paragraph>
+                <Spacer/>
+                <Paragraph>{t('vulkan.graphics.p3')}</Paragraph>
                 <Spacer/>
 
-                <Paragraph size={3}>The Vulkan pattern</Paragraph>
+                <Paragraph size={3}>{t('vulkan.pattern.title')}</Paragraph>
                 <Spacer size={3}/>
-                <Paragraph>There is a singular, most common pattern that
-                    appears when using Vulkan to manage GPU resources. This
-                    section briefly
-                    describes that pattern.</Paragraph>
+                <Paragraph>{t('vulkan.pattern.intro')}</Paragraph>
+                <Spacer/>
+
+                <Paragraph>{t('vulkan.pattern.example')}</Paragraph>
+                <Spacer/>
+
+                <Paragraph size={4}>{t('vulkan.create.title')}</Paragraph>
+                <Spacer size={4}/>
+                <Paragraph>
+                    {t('vulkan.create.p1.before')}<CT>Vk*</CT>{t('vulkan.create.p1.mid')}<CT>VkBuffer</CT>{t('vulkan.create.p1.after')}
+                </Paragraph>
                 <Spacer/>
 
                 <Paragraph>
-                    For the example, we suppose the user wants to create a
-                    buffer in
-                    GPU memory.
+                    {t('vulkan.create.p2.before')}<I>{t('vulkan.create.p2.italic')}</I>{t('vulkan.create.p2.mid1')}<CT>vkCreate*</CT>{t('vulkan.create.p2.mid2')}<CT>VkBuffer</CT>{t('vulkan.create.p2.after')}<CF>vkCreateBuffer.</CF>
                 </Paragraph>
                 <Spacer/>
 
-                <Paragraph size={4}>Creating resources</Paragraph>
-                <Spacer size={4}/>
-                <Paragraph>Resources are represented
-                    by opaque <CT>Vk*</CT> handles that
-                    hide
-                    the internal state of
-                    Vulkan objects. The handle for a buffer
-                    is <CT>VkBuffer</CT>.
+                <Paragraph>
+                    {t('vulkan.create.p3.before')}<CT>Vk*CreateInfo</CT>{t('vulkan.create.p3.mid1')}<CT>VkBuffer</CT>{t('vulkan.create.p3.mid2')}<CT>VkBufferCreateInfo</CT>{t('vulkan.create.p3.after')}
                 </Paragraph>
                 <Spacer/>
 
-                <Paragraph>To <I>create</I> resources, a Vulkan command
-                    needs
-                    to be called. All such commands are of the
-                    form <CT>vkCreate*</CT>.
-                    The command to create
-                    a <CT>VkBuffer</CT> is <CF>vkCreateBuffer.</CF></Paragraph>
-                <Spacer/>
-
-                <Paragraph>When calling creation commands, virtually
-                    always, a <CT>Vk*CreateInfo</CT> structure needs to be
-                    set up. As demonstrated below, the creation of
-                    a <CT>VkBuffer</CT> requires
-                    a <CT>VkBufferCreateInfo</CT>.
-                </Paragraph>
-                <Spacer/>
-
-                <Paragraph>Creation commands will also always ask the
-                    programmer for a pointer to a handle
-                    (here <CT>VkBuffer</CT>) in which the newly created
-                    resource's
-                    location is stored. This handle is the primary way in
-                    which
-                    programmers interact with resources after creation.
+                <Paragraph>
+                    {t('vulkan.create.p4.before')}<CT>VkBuffer</CT>{t('vulkan.create.p4.after')}
                 </Paragraph>
                 <Spacer/>
 
@@ -172,37 +125,20 @@ function TheVulkanModel() {
                 </Code>
                 <Spacer/>
 
-                <Paragraph size={4}>About create infos</Paragraph>
+                <Paragraph size={4}>{t('vulkan.createinfo.title')}</Paragraph>
                 <Spacer size={4}/>
-                <Paragraph>Note that the <CN>pCreateInfo</CN> variable is a
-                    pointer.
-                    This implies that for this function call to work, there
-                    needs to be a <CT>VkBufferCreateInfo</CT> variable in
-                    scope. Note that after the creation command is called,
-                    the "create info" variables can be destroyed
-                    freely.</Paragraph>
-                <Spacer/>
-
-                <Paragraph>While the
-                    fields for <CT>Vk*CreateInfo</CT> structs need
-                    vary from struct to struct, they invariably have
-                    an <CT>sType</CT> field.
-                    This field is used by Vulkan to identify the type of the
-                    structure.
+                <Paragraph>
+                    {t('vulkan.createinfo.p1.before')}<CN>pCreateInfo</CN>{t('vulkan.createinfo.p1.mid1')}<CT>VkBufferCreateInfo</CT>{t('vulkan.createinfo.p1.mid2')}
                 </Paragraph>
                 <Spacer/>
-                <Paragraph>Without the correct <CT>sType</CT>, the function
-                    call will fail. Discovering the correct value for the
-                    field is easy, however. The documentation always
-                    mentions
-                    the required value for the <CT>sType</CT> field.
 
-                    For <CT>VkBufferCreateInfo</CT>,
-                    the <TextLink
-                        link="https://docs.vulkan.org/spec/latest/chapters/resources.html#VUID-VkBufferCreateInfo-sType-sType">
-                        documentation</TextLink>
-                    {' '} states
-                    the following:
+                <Paragraph>
+                    {t('vulkan.createinfo.p2.before')}<CT>Vk*CreateInfo</CT>{t('vulkan.createinfo.p2.mid1')}<CT>sType</CT>{t('vulkan.createinfo.p2.after')}
+                </Paragraph>
+                <Spacer/>
+                <Paragraph>
+                    {t('vulkan.createinfo.p3.before')}<CT>sType</CT>{t('vulkan.createinfo.p3.mid1')}<CT>sType</CT>{t('vulkan.createinfo.p3.mid2')}<CT>VkBufferCreateInfo</CT>{t('vulkan.createinfo.p3.mid3')}<TextLink
+                    link="https://docs.vulkan.org/spec/latest/chapters/resources.html#VUID-VkBufferCreateInfo-sType-sType">{t('vulkan.createinfo.p3.link')}</TextLink>{t('vulkan.createinfo.p3.after')}
                 </Paragraph>
                 <Spacer/>
                 <Code>
@@ -217,20 +153,13 @@ function TheVulkanModel() {
                 </Code>
                 <Spacer/>
 
-                <Paragraph size={4}>Destroying resources</Paragraph>
+                <Paragraph size={4}>{t('vulkan.destroy.title')}</Paragraph>
                 <Spacer size={4}/>
-                <Paragraph>Finally, <I>initiation</I> of object cleanup is
-                    manual. Even
-                    though the API facilitates the allocation of resources,
-                    it does not manage the resources' lifetime. To destroy
-                    objects, call the
-                    corresponding <CF>vkDestroy*</CF> method. Only then
-                    will Vulkan free the resource.
-
-                    For <CT>VkBuffer</CT>, the command
-                    is <CF>vkDestroyBuffer</CF>.
+                <Paragraph>
+                    {t('vulkan.destroy.p1.before')}<I>{t('vulkan.destroy.p1.italic')}</I>{t('vulkan.destroy.p1.mid1')}<CF>vkDestroy*</CF>{t('vulkan.destroy.p1.mid2')}<CT>VkBuffer</CT>{t('vulkan.destroy.p1.after')}<CF>vkDestroyBuffer</CF>{t('vulkan.destroy.p1.end')}
                 </Paragraph>
                 <Spacer/>
+
                 <Code>
                     <CodeLine><CT>void </CT>
                         <CF>vkDestroyBuffer</CF>(</CodeLine>
@@ -243,16 +172,12 @@ function TheVulkanModel() {
                 </Code>
 
                 <Spacer/>
-                <Paragraph>The handle obtained during creation is passed
-                    to the destroy command.</Paragraph>
+                <Paragraph>{t('vulkan.destroy.p2')}</Paragraph>
 
                 <Spacer/>
-                <Paragraph size={4}>Summary</Paragraph>
+                <Paragraph size={4}>{t('vulkan.summary.title')}</Paragraph>
                 <Spacer size={4}/>
-                <Paragraph>Considering all of the above, an excerpt of
-                    resource creation is provided below. This pattern is
-                    general and ubiquitous in Vulkan.
-                </Paragraph>
+                <Paragraph>{t('vulkan.summary.p1')}</Paragraph>
                 <Spacer/>
                 <Code>
                     <CodeLine><CT>VkBufferCreateInfo</CT> {'info {'} <CC>//
@@ -286,117 +211,69 @@ function TheVulkanModel() {
             </Card>
 
             <Card>
-                <Paragraph size={2}>Conceptual overview</Paragraph>
+                <Paragraph size={2}>{t('vulkan.overview.title')}</Paragraph>
                 <Spacer size={2}/>
-                <Paragraph>Vulkan achieves the titular goal through the
-                    interoperation
-                    of its many objects. Obviously the programmer must
-                    assemble the graphics pipeline, but they must also
-                    manually put together everything else, like the render
-                    passes that use the pipeline, or the buffers to
-                    back texture images.
-                </Paragraph>
+                <Paragraph>{t('vulkan.overview.p1')}</Paragraph>
 
                 <Spacer/>
-                <Paragraph>The general steps needed to be taken are as
-                    follows:
-                </Paragraph>
+                <Paragraph>{t('vulkan.overview.p2')}</Paragraph>
                 <Spacer size={3}/>
 
-                <Paragraph size={3}>1. Initialise Vulkan</Paragraph>
+                <Paragraph size={3}>{t('vulkan.step1.title')}</Paragraph>
                 <Spacer/>
-                <Paragraph>The first step is to prepare fundamental objects.
-                    These are the <I>physical device</I> and the <I>logical
-                        device</I>.
+                <Paragraph>
+                    {t('vulkan.step1.p1.before')}<I>{t('vulkan.step1.p1.italic1')}</I>{t('vulkan.step1.p1.mid')}<I>{t('vulkan.step1.p1.italic2')}</I>{t('vulkan.step1.p1.after')}
                 </Paragraph>
                 <Spacer/>
-                <Paragraph>The physical device can be thought of as a
-                    Vulkan-capable GPU on the system.
-                    It is represented by
-                    the <CT>VkPhysicalDevice</CT> handle.
-                    The programmer needs to query the
-                    system
-                    for available devices and choose one to use.
-                    Furthermore,
-                    the physical device needs to be verified to see if it
-                    supports features the Vulkan application being built
-                    intends to use (e.g., anti-aliasing).</Paragraph>
+                <Paragraph>
+                    {t('vulkan.step1.p2.before')}<CT>VkPhysicalDevice</CT>{t('vulkan.step1.p2.mid')}
+                </Paragraph>
                 <Spacer/>
-                <Paragraph>The logical device can be though of as a
-                    connection to the physical device. It is represented by
-                    the <CT>VkDevice</CT> handle. It is through
-                    the logical device that the physical device is
-                    interfaced with.</Paragraph>
+                <Paragraph>
+                    {t('vulkan.step1.p3.before')}<CT>VkDevice</CT>{t('vulkan.step1.p3.after')}
+                </Paragraph>
 
-                <Paragraph>By initialising Vulkan, the user ensures that the
-                    application is ready to use the selected GPU.
-                </Paragraph>
+                <Paragraph>{t('vulkan.step1.p4')}</Paragraph>
                 <Spacer size={3}/>
 
 
-                <Paragraph size={3}>2. Obtain a drawing surface from the
-                    operating system</Paragraph>
+                <Paragraph size={3}>{t('vulkan.step2.title')}</Paragraph>
                 <Spacer/>
-                <Paragraph>Vulkan needs a surface to draw to. A surface can
-                    be understood
-                    as some window on the screen. This surface is created by
-                    the operating system, then given to Vulkan to use.
-                    The Vulkan object that represents this surface
-                    is <TextLink
-                        link='https://docs.vulkan.org/spec/latest/chapters/VK_KHR_surface/wsi.html#_wsi_surface'
-                        popupMessage='From the documentation:
-                            "Native platform surface or window objects are abstracted by surface objects,
-                            which are represented by VkSurfaceKHR handles."'><CT>VkSurfaceKHR</CT></TextLink>.
+                <Paragraph>
+                    {t('vulkan.step2.p1.before')}<TextLink
+                    link='https://docs.vulkan.org/spec/latest/chapters/VK_KHR_surface/wsi.html#_wsi_surface'
+                    popupMessage='From the documentation:
+                        "Native platform surface or window objects are abstracted by surface objects,
+                        which are represented by VkSurfaceKHR handles."'><CT>VkSurfaceKHR</CT></TextLink>{t('vulkan.step2.p1.after')}
                 </Paragraph>
                 <Spacer size={3}/>
 
-                <Paragraph size={3}>3. Create a swapchain</Paragraph>
+                <Paragraph size={3}>{t('vulkan.step3.title')}</Paragraph>
                 <Spacer/>
-                <Paragraph>A swapchain is the Vulkan term for a set of
-                    virtual framebuffers.
-                    The swapchain handle is <CT>VkSwapchainKHR</CT>.
-                    It is the swapchain that facilitates double-buffering.
+                <Paragraph>
+                    {t('vulkan.step3.p1.before')}<CT>VkSwapchainKHR</CT>{t('vulkan.step3.p1.after')}
                 </Paragraph>
                 <Spacer/>
 
-                <Paragraph>Regardless of the whether double-buffering is
-                    actually performed, the swapchain encapsulates a list
-                    of images (pixel buffers) bound to the surface.
-                    Formally, an image in vulkan is a <CT>VkImage</CT>.
+                <Paragraph>
+                    {t('vulkan.step3.p2.before')}<CT>VkImage</CT>{t('vulkan.step3.p2.after')}
                 </Paragraph>
                 <Spacer size={3}/>
 
-                <Paragraph size={3}>4. Set up the graphics
-                    pipeline</Paragraph>
+                <Paragraph size={3}>{t('vulkan.step4.title')}</Paragraph>
                 <Spacer/>
-                <Paragraph>This is the most expansive and involved part of a
-                    basic Vulkan application.
-                    The programmer must manually set up the graphics
-                    pipeline and prepare data structures the pipeline will
-                    process. </Paragraph>
+                <Paragraph>{t('vulkan.step4.p1')}</Paragraph>
                 <Spacer/>
-                <Paragraph>The end product of this stage is a pipeline
-                    object
-                    that can be used to transform data in the pre-defined 3D
-                    coordinate
-                    system into screen coordinates. The derivation of the
-                    entire pipeline
-                    is the primary focus of this article and is discussed
-                    later. The pipeline object
-                    is <CT>VkPipeline</CT>.</Paragraph>
+                <Paragraph>
+                    {t('vulkan.step4.p2.before')}<CT>VkPipeline</CT>{t('vulkan.step4.p2.after')}
+                </Paragraph>
 
                 <Spacer size={3}/>
-                <Paragraph size={3}>5. Use all the assembled resources to
-                    draw to the screen
+                <Paragraph size={3}>{t('vulkan.step5.title')}
                 </Paragraph>
                 <Spacer/>
-                <Paragraph>A reasonably involved step as well, once the
-                    pipeline is used it must be utilised in a <I>render
-                        pass</I>.
-                    A render pass coordinates all the resources
-                    created and configured in the prior steps to draw to the
-                    screen. The render pass object
-                    is <CT>VkRenderPass</CT>.
+                <Paragraph>
+                    {t('vulkan.step5.p1.before')}<I>{t('vulkan.step5.p1.italic')}</I>{t('vulkan.step5.p1.after')}<CT>VkRenderPass</CT>{t('vulkan.step5.p1.end')}
                 </Paragraph>
 
 

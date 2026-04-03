@@ -18,7 +18,8 @@ export default defineConfig({
             '@util': path.resolve('src/util'),
             '@svg': path.resolve('src/assets/svg'),
             '@animations': path.resolve('src/assets/animations'),
-            '@i18n': path.resolve('src/i18n')
+            '@i18n': path.resolve('src/i18n'),
+            '@layouts': path.resolve('src/layouts'),
         }
     }
 });

@@ -1,7 +1,5 @@
 import React from 'react';
 import styles from './OogaBooga.module.css'
-import ArrowButton from "@components/ArrowButton/ArrowButton.jsx";
-import Button from "@components/Button/Button.jsx";
 import {Card} from "@components/Card/Card.jsx";
 import Paragraph from "@components/Paragraph/Paragraph.jsx";
 import Spacer from "@components/Spacer/Spacer.jsx";
@@ -12,13 +10,9 @@ import List from "@components/List/List.jsx";
 import {useLanguage} from "@i18n/LanguageContext.jsx";
 
 function OogaBooga() {
-    const {lang, toggleLang, t} = useLanguage();
+    const {t} = useLanguage();
     return (
-        <div className={styles.oogaBooga}>
-            <ArrowButton route='/' direction='left'
-                         className={styles.arrowButton}/>
-
-            <div className={styles.content}>
+        <div className={styles.content}>
                 <Card>
                     <Paragraph size={1}>{t('ooga.page.title')}</Paragraph>
                     <Paragraph size={2}>{t('ooga.page.subtitle')}</Paragraph>
@@ -124,11 +118,7 @@ function OogaBooga() {
                     <MediaFrame media='/images/ooga-booga/attacked.png'
                                 caption='the mammoth swinging its trunk at the caveman'/>
                 </Card>
-            </div>
-            <Button onClick={toggleLang} type='action' linkText={lang === 'en' ? 'JP' : 'EN'}/>
-
         </div>
-
     );
 }
 

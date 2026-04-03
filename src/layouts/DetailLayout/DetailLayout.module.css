@@ -1,0 +1,11 @@
+/* Three-column flex row: ArrowButton | page content | LangButton */
+.shell {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding: 6rem 12rem;
+}
+
+.arrowButton {
+    position: relative;
+}

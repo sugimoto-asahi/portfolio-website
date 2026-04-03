@@ -8,5 +8,6 @@
     border-bottom: 4px solid black;
     border-left: 2px solid black;
     width: 100%;
-    align-self: center;
+    height: 100%;
+    box-sizing: border-box;
 }
